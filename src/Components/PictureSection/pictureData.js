@@ -1,7 +1,6 @@
 import pic1 from '../../res/images/gallery/model1.JPG';
 import pic2 from '../../res/images/gallery/model2.JPG';
 import pic3 from '../../res/images/gallery/model3.JPG';
-<<<<<<< HEAD
 import pic5 from '../../res/images/gallery/model5.JPG';
 import pic6 from '../../res/images/gallery/Cumi-1.jpg';
 import pic7 from '../../res/images/gallery/Cumi-2.jpg';
@@ -13,10 +12,6 @@ import pic12 from '../../res/images/gallery/Cumi-7.jpg';
 import pic13 from '../../res/images/gallery/Cumi-8.jpg';
 import pic14 from '../../res/images/gallery/Cumi-9.jpg';
 import pic15 from '../../res/images/gallery/Cumi-10.jpg';
-=======
-import pic4 from '../../res/images/gallery/model4.JPG';
-import pic5 from '../../res/images/gallery/model5.JPG';
->>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
 
 export const pictureData = [
   {
@@ -37,23 +32,12 @@ export const pictureData = [
     subtitle: 'subtitle3',
     detail: 'detail3',
   },
-<<<<<<< HEAD
-
-=======
-  {
-    image: pic4,
-    title: 'title4 ',
-    subtitle: 'subtitle4',
-    detail: 'detail4',
-  },
->>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   {
     image: pic5,
     title: 'title5 ',
     subtitle: 'subtitle5',
     detail: 'detail5',
   },
-<<<<<<< HEAD
   {
     image: pic6,
     title: 'title6 ',
@@ -116,6 +100,3 @@ export const pictureData = [
   },
 ];
 
-=======
-];
->>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d

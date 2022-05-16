@@ -1,9 +1,5 @@
 header {
-<<<<<<< HEAD
   z-index: 888;
-=======
-  z-index: 999;
->>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   position: fixed;
   top: 0;
   left: 0;
@@ -158,11 +154,7 @@ header .navigation .navigation-items a:hover:before {
     transition: 0.3s ease;
     top: 10px;
     right: 10px;
-<<<<<<< HEAD
     size: 2rem;
-=======
-  size: 2rem;
->>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
     padding: 5px;
     color: #251119;
     cursor: pointer;
@@ -187,7 +179,3 @@ header .navigation .navigation-items a:hover:before {
     line-height: 60px;
   }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
