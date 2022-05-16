@@ -1,0 +1,181 @@
+header {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 10px;
+  transition: 0.5s ease;
+  background-color: #81f7b6;
+}
+
+header .brand {
+  color: #251119;
+  font-size: 1.5em;
+  font-weight: 700;
+  /* text-transform: uppercase; */
+  text-decoration: none;
+  font-family: 'AlishaFree';
+}
+
+.brand:hover {
+  color: #9225fe;
+}
+
+header .navigation {
+  position: relative;
+}
+
+header .navigation .navigation-items a {
+  position: relative;
+  color: black;
+  font-size: 1em;
+  font-weight: 400;
+  text-decoration: none;
+  margin-left: 30px;
+  transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover {
+  color: #9225fe;
+  transition: all 0.2s ease-out;
+}
+
+header .navigation .navigation-items a:before {
+  content: '';
+  position: absolute;
+  background: #9225fe;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before {
+  width: 100%;
+}
+
+.socials {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  margin-right: 22px;
+
+  /* @media screen and (max-width: 760px) {
+    display: none;
+  } */
+}
+
+.social-items {
+  height: 50px;
+}
+
+.social-items a {
+  color: #251119;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+}
+
+.social-items a:hover {
+  color: #9225fe;
+}
+
+.menu-btn {
+  display: none;
+}
+
+@media (max-width: 1040px) {
+  header {
+    padding: 12px 20px;
+  }
+
+  section {
+    padding: 100px 20px;
+  }
+
+  .home .media-icons {
+    right: 15px;
+  }
+
+  header .navigation {
+    display: none;
+  }
+
+  header .navigation.active {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(1, 1, 1, 0.5);
+  }
+
+  header .navigation .navigation-items a {
+    color: #222;
+    font-size: 1.2em;
+    margin: 0px 20px;
+  }
+
+  header .navigation .navigation-items a:before {
+    background: #222;
+    height: 5px;
+  }
+
+  header .navigation.active .navigation-items {
+    background: #fff;
+    width: 600px;
+    max-width: 600px;
+    margin: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+  }
+
+  .menu-btn {
+    position: fixed;
+    display: block;
+    background-position: center;
+    transition: 0.3s ease;
+    top: 10px;
+    right: 10px;
+  size: 2rem;
+    padding: 5px;
+    color: #251119;
+    cursor: pointer;
+  }
+
+  .menu-btn.active {
+    z-index: 999;
+    /* background: url(close.png)no-repeat; */
+    background-size: 25px;
+    background-position: center;
+    transition: 0.3s ease;
+  }
+
+  .social-items {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .home .content h1 {
+    font-size: 3em;
+    line-height: 60px;
+  }
+}
