@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .picture-section {
   position: relative;
   width: 100%;
@@ -99,4 +100,107 @@
   z-index: 999;
   cursor: pointer;
   user-select: none;
+=======
+.picture-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #fff;
+}
+.picture-section:before {
+  z-index: 666;
+  content: '';
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.picture-section .content {
+  z-index: 777;
+  color: #fff;
+  width: -30%;
+  margin-top: 50px;
+  text-align: right;
+  display: none;
+}
+.picture-section .content.active {
+  display: block;
+}
+.picture-section .content h1 {
+  font-size: 4em;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 75px;
+  margin-bottom: 40px;
+}
+.picture-section .content h1 span {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.picture-section .content p {
+  margin-bottom: 65px;
+}
+
+.picture-section .content button {
+  background: #81f7b6;
+  padding: 15px 35px;
+  color: #251119;
+  font-size: 1.1em;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+}
+.content button:hover {
+  color: #81f7b6;
+  background: #9225fe;
+  transition: ease-in-out 0.3s;
+}
+.picture-section img{
+  z-index: 000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.picture-slide{
+  position: absolute;
+  width: 100%;
+  clip-path: circle(0% at 0 50%);
+}
+
+.picture-slide.active{
+  clip-path: circle(150% at 0 50%);
+  transition: 2s ease;
+  transition-property: clip-path;
+}
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 999;
+  cursor: pointer;
+  user-select: none;
+}
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 999;
+  cursor: pointer;
+  user-select: none;
+>>>>>>> 955c34a... chargedmedia commit
 }
