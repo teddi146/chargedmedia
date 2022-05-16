@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.86782706.css",
+    "main.js": "/static/js/main.d1db18a7.js",
+    "static/media/How You Feel.mp4": "/static/media/How You Feel.a4b5071d30d62d183e4c.mp4",
+    "static/media/Late Nights.mp4": "/static/media/Late Nights.566cfcf4cbd59cc534d3.mp4",
+    "static/media/Home.mp4": "/static/media/Home.828f3f9f6d72771a3134.mp4",
+    "static/media/Hamba No Bani.mp4": "/static/media/Hamba No Bani.f8e4cebcd539a53692be.mp4",
+    "static/media/Msholozi.mp4": "/static/media/Msholozi.b1c20faae768c0aec3e5.mp4",
+    "static/media/Alostro.mp4": "/static/media/Alostro.ef7b6c6f25c8f3a5e9f6.mp4",
+    "static/media/Audio Czzle.mp4": "/static/media/Audio Czzle.3703a1e8073df58ce572.mp4",
+    "static/media/Big Time Schlappa.mp4": "/static/media/Big Time Schlappa.c5cb60fe789c52df91e2.mp4",
+    "static/media/Home.png": "/static/media/Home.265d779ea3edd385b196.png",
+    "static/media/Big Time Schalap.png": "/static/media/Big Time Schalap.d3504b00481cf77e9199.png",
+    "static/media/model2.JPG": "/static/media/model2.51f7537440ce6b9d8aa0.JPG",
+    "static/media/How you Feel.png": "/static/media/How you Feel.0b51aa7c827146aa2fa3.png",
+    "static/media/model5.JPG": "/static/media/model5.3b518ac90f26cc63d32c.JPG",
+    "static/media/Late Nights.png": "/static/media/Late Nights.05800ab8b9a3d9db2e0a.png",
+    "static/media/Msholozi.png": "/static/media/Msholozi.378b173917d8569f4ed5.png",
+    "static/media/model1.JPG": "/static/media/model1.29f42203dd1c75764a1c.JPG",
+    "static/media/Hamba Nobani.png": "/static/media/Hamba Nobani.2382c6ce54f10a69e1c4.png",
+    "static/media/model4.JPG": "/static/media/model4.2b276b09581c4d9a7f32.JPG",
+    "static/media/model3.JPG": "/static/media/model3.421a7ab78f1db87a6047.JPG",
+    "static/media/Alostro.png": "/static/media/Alostro.71f887bcc3a7a4bd60be.png",
+    "static/media/AudioCzzle.png": "/static/media/AudioCzzle.3affb275b8e2471eca9d.png",
+    "index.html": "/index.html",
+    "main.86782706.css.map": "/static/css/main.86782706.css.map",
+    "main.d1db18a7.js.map": "/static/js/main.d1db18a7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.86782706.css",
+    "static/js/main.d1db18a7.js"
+  ]
+}
