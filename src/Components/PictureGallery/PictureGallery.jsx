@@ -23,8 +23,18 @@ const PictureGallery = ({ pictureData }) => {
         <img src={tempImg} alt='' />
       </div>
       <div className='gallery'>
-        <h1>Photography</h1>
-        {pictureData.map((image, index) => {
+        <h1
+          style={{
+            width: '100vw;',
+            height: 'fit-content',
+            marginBottom: '20px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          Photography
+        </h1>
+        {/* {pictureData.map((image, index) => {
           return (
             <div
               className='picture-gallery'
@@ -36,7 +46,24 @@ const PictureGallery = ({ pictureData }) => {
               <img src={image.image} alt='' style={{ width: '100%' }} />
             </div>
           );
-        })}
+        })} */}
+        <div className='img-row'>
+          {pictureData.map((image, index) => {
+            return (
+              <div
+                className='img-column'
+                key={index}
+                onClick={() => {
+                  getImage(image.image);
+                }}
+              >
+                <div className='img-wrapper'>
+                  <img src={image.image} alt='' />
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div className='gallery'>
         {' '}
@@ -68,3 +95,4 @@ const PictureGallery = ({ pictureData }) => {
 };
 
 export default PictureGallery;
+
