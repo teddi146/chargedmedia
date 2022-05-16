@@ -11,7 +11,11 @@ const PictureGallery = ({ pictureData }) => {
   const getImage = (image) => {
     setTempImg(image);
     setModal(true);
+<<<<<<< HEAD
     // console.log(image);
+=======
+    console.log(image);
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   };
 
   return (
@@ -23,6 +27,7 @@ const PictureGallery = ({ pictureData }) => {
         <img src={tempImg} alt='' />
       </div>
       <div className='gallery'>
+<<<<<<< HEAD
         <h1
           style={{
             width: '100vw;',
@@ -35,6 +40,10 @@ const PictureGallery = ({ pictureData }) => {
           Photography
         </h1>
         {/* {pictureData.map((image, index) => {
+=======
+        <h1>Photography</h1>
+        {pictureData.map((image, index) => {
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
           return (
             <div
               className='picture-gallery'
@@ -46,6 +55,7 @@ const PictureGallery = ({ pictureData }) => {
               <img src={image.image} alt='' style={{ width: '100%' }} />
             </div>
           );
+<<<<<<< HEAD
         })} */}
         <div className='img-row'>
           {pictureData.map((image, index) => {
@@ -64,6 +74,9 @@ const PictureGallery = ({ pictureData }) => {
             );
           })}
         </div>
+=======
+        })}
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
       </div>
       <div className='gallery'>
         {' '}
@@ -95,4 +108,7 @@ const PictureGallery = ({ pictureData }) => {
 };
 
 export default PictureGallery;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d

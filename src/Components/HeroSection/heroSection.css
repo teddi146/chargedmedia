@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
 .home {
   position: relative;
   width: 100%;
@@ -9,7 +13,11 @@
 }
 
 .home:before {
+<<<<<<< HEAD
   z-index: 555;
+=======
+  z-index: 666;
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   content: '';
   position: absolute;
   /* background: rgba(3, 96, 251, 0.3); */
@@ -43,11 +51,19 @@
   font-weight: 600;
 }
 
+<<<<<<< HEAD
 .home .content p {
   margin-bottom: 65px;
 }
 
 .home .content button {
+=======
+.home .content p{
+  margin-bottom: 65px;
+}
+
+.home .content button{
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   background: #81f7b6;
   padding: 15px 35px;
   color: #251119;
@@ -57,13 +73,22 @@
   border: none;
   border-radius: 10px;
 }
+<<<<<<< HEAD
 .content button:hover {
   color: #81f7b6;
+=======
+.content button:hover{
+  color:#81f7b6;
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   background: #9225fe;
   transition: ease-in-out 0.3s;
 }
 
+<<<<<<< HEAD
 .home video {
+=======
+.home video{
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   z-index: 000;
   position: absolute;
   top: 0;
@@ -72,7 +97,11 @@
   height: 100%;
   object-fit: cover;
 }
+<<<<<<< HEAD
 .slider-navigation {
+=======
+.slider-navigation{
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   z-index: 888;
   position: relative;
   display: flex;
@@ -82,7 +111,11 @@
   margin-bottom: 12px;
 }
 
+<<<<<<< HEAD
 .slider-navigation .nav-btn {
+=======
+.slider-navigation .nav-btn{
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   width: 12px;
   height: 12px;
   background: #81f7b6;
@@ -92,6 +125,7 @@
   transition: 0.3s ease;
 }
 
+<<<<<<< HEAD
 .slider-navigation .nav-btn.active {
   background: #9225fe;
 }
@@ -105,12 +139,31 @@
 }
 
 .video-slide {
+=======
+.slider-navigation .nav-btn.active{
+  background: #9225fe;
+}
+
+.slider-navigation .nav-btn:not(:last-child){
+  margin-right: 20px;
+}
+
+.slider-navigation .nav-btn:hover{
+  transform: scale(1.2);
+}
+
+.video-slide{
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   position: absolute;
   width: 100%;
   clip-path: circle(0% at 0 50%);
 }
 
+<<<<<<< HEAD
 .video-slide.active {
+=======
+.video-slide.active{
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
   clip-path: circle(150% at 0 50%);
   transition: 2s ease;
   transition-property: clip-path;

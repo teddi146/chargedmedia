@@ -14,7 +14,11 @@ import vid4 from '../../res/video/Hamba No Bani.mp4';
 import vid5 from '../../res/video/Home.mp4';
 import vid6 from '../../res/video/How You Feel.mp4';
 import vid7 from '../../res/video/Late Nights.mp4';
+<<<<<<< HEAD
 import vid8 from '../../res/video/msholozi.mp4';
+=======
+import vid8 from '../../res/video/Msholozi.mp4';
+>>>>>>> 955c34a30e13808e642bed34894ccf3d4f76320d
 
 export const heroData = [
   {
