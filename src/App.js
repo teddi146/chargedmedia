@@ -9,8 +9,14 @@ import Pricing from './Pages/Pricing';
 import Bookings from './Pages/Bookings';
 import Contact from './Pages/Contact';
 import IntersectionObserver from './Components/util/IntersectionObserver';
+import AuthContext from './Context/authContext';
+import { useState } from 'react';
+import Sidebar from './Components/SideBar/Sidebar';
 
 function App() {
+  const [click, setClick] = useState(null);
+  const [isOpen, setIsOpen] = useState(null);
+
   let callback = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.target.id === 'headerVideo') {
@@ -22,28 +28,47 @@ function App() {
       }
     });
   };
+
   let options = {
     root: null,
     rootMargin: '0px',
     threshold: 1.0,
   };
+
+  const closeMobileMenu = () => {
+    setClick(false);
+  };
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <IntersectionObserver callback={callback} options={options} />
-
-      <Router>
-        <Navbar />
-        <>
-          <Routes>
-            <Route path='/' exact element={<Home />} />
-            <Route path='/portfolio' exact element={<Portfolio />} />
-            <Route path='/pricing' exact element={<Pricing />} />
-            <Route path='/bookings' exact element={<Bookings />} />
-            <Route path='/contact' exact element={<Contact />} />
-          </Routes>
-        </>
-        <Footer />
-      </Router>
+      <AuthContext.Provider
+        value={{
+          isOpen: isOpen,
+          click: click,
+          closeMobileMenu: closeMobileMenu,
+          toggle: toggle,
+        }}
+      >
+        <Router>
+          <Navbar />
+          <Sidebar />
+          <>
+            <Routes>
+              <Route path='/' exact element={<Home />} />
+              <Route path='/portfolio' exact element={<Portfolio />} />
+              <Route path='/pricing' exact element={<Pricing />} />
+              <Route path='/bookings' exact element={<Bookings />} />
+              <Route path='/contact' exact element={<Contact />} />
+            </Routes>
+          </>
+          <Footer />
+        </Router>
+      </AuthContext.Provider>
     </>
   );
 }

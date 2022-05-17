@@ -69,13 +69,9 @@
   transform: scale(1.2);
 }
 
-@media (max-width: 480px) {
-  header {
-    min-width: 480px;
-    padding: 0px 48px;
-  }
+/* @media (max-width: 672px) {
+
   section {
-    min-width: 480px;
     padding: 0px 48px;
   }
   section,
@@ -83,13 +79,24 @@
   p {
     font-size: 0.8rem;
   }
-  .home .content h1 {
-    font-size: 3em;
-    line-height: 60px;
-  }
-}
 
-@media (max-width: 768px) {
+  .footer-link-items {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+  }
+  .gallery {
+    margin-top: 120px;
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    -webkit-column-width: 100%;
+    -moz-column-width: 100%;
+    column-width: 100%;
+  }
+} */
+
+/* @media (max-width: 990px) {
   header {
     width: 100vw;
     min-width: 480px;
@@ -102,10 +109,6 @@
   section {
     padding: 100px 20px;
     min-width: 480px;
-  }
-
-  .home .media-icons {
-    right: 15px;
   }
 
   header .navigation {
@@ -162,7 +165,7 @@
 
   .menu-btn.active {
     z-index: 999;
-    /* background: url(close.png)no-repeat; */
+    background: url(close.png)no-repeat;
     background-size: 25px;
     background-position: center;
     transition: 0.3s ease;
@@ -175,5 +178,86 @@
   .social-items {
     display: none;
   }
+  .footer-links-container {
+    padding-top: 32px;
+  }
+  .footer-links-wrapper {
+    flex-direction: column;
+  }
+  .social-media-wrapper {
+    flex-direction: column;
+  }
+  .gallery {
+    margin-top: 120px;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+} */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* .navigation {
+    display: none;
+  } */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  /* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  /* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* Styles */
+}
+
+/* iPhone 4 - 5s ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-device-pixel-ratio: 1.5) {
+  /* Styles */
+}
+
+/* iPhone 6 ----------- */
+@media only screen and (max-device-width: 667px),
+  only screen and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+}
+
+/* iPhone 6+ ----------- */
+@media only screen and (min-device-width: 414px),
+  only screen and (-webkit-device-pixel-ratio: 3) {
+  /*** You've spent way too much on a phone ***/
+}
+
+/* Samsung Galaxy S7 Edge ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 3),
+  only screen and (min-resolution: 192dpi) and (max-width: 640px) {
+  /* Styles */
 }
 

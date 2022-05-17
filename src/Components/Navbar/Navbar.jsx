@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import {
@@ -12,17 +13,32 @@ import {
 import { FiMenu } from 'react-icons/fi';
 
 import './navbar.css';
+import Logo from '../../res/images/gallery/Web_150Artboard 1.png';
+import AuthContext from '../../Context/authContext';
 
 const Navbar = () => {
+  const context = useContext(AuthContext);
+
   return (
     <>
       {/* <IconContext.Provider className='icp' value={{ size: '1.5em' }}> */}
       <header>
-        <Link to='/' className='brand'>
-          Media
+        <Link
+          to='/'
+          className='brand'
+          style={{ display: 'flex', alignItems: 'end' }}
+        >
+          <div className='img-wrapper'>
+            <img
+              src={Logo}
+              style={{ width: '50px', marginRight: '3px' }}
+              alt=''
+            />
+          </div>
+          edia
         </Link>
-        <div className='menu-btn'>
-          <FiMenu />
+        <div className='menu-btn' onClick={context.toggle}>
+          <FiMenu className='menuBars' />
         </div>
         <div className='navigation'>
           <div className='navigation-items'>
@@ -72,7 +88,7 @@ const Navbar = () => {
                 <FaYoutube />
               </a>
             </li>
-            <li className='social-items'>
+            {/* <li className='social-items'>
               <a
                 href='https://www.twitter.com'
                 target='_blank'
@@ -80,7 +96,7 @@ const Navbar = () => {
               >
                 <FaTwitter />
               </a>
-            </li>
+            </li> */}
             <li className='social-items'>
               <a to='/'>
                 <FaUserAlt />

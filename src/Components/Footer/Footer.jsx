@@ -16,7 +16,7 @@ const Footer = () => {
             <div className='footer-link-items'>
               <h1 className='footer-link-title'> About Us </h1>
               <Link className='footer-link' to='/'>
-                How it Works
+                Our Story
               </Link>
               <Link to='/' className='footer-link'>
                 Careers
@@ -29,22 +29,22 @@ const Footer = () => {
           <div className='footer-links-wrapper'>
             <div className='footer-link-items'>
               <h1 className='footer-link-title'> Contact Us </h1>
-              <Link to='/' className='footer-link'>
+              <Link to='/contact' className='footer-link'>
                 Contact
               </Link>
-              <Link to='/' className='footer-link'>
+              {/* <Link to='/' className='footer-link'>
                 Support
               </Link>
               <Link to='/' className='footer-link'>
                 Investors
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className='footer-links-wrapper'>
             <div className='footer-link-items'>
               <h1 className='footer-link-title'> Social Media </h1>
               <a
-                href='//www.instagram.com'
+                href='https://www.instagram.com/chargedmedia_/'
                 target='_blank'
                 rel='noreferrer'
                 aria-label='instagram'
@@ -53,7 +53,7 @@ const Footer = () => {
                 Instagram
               </a>
               <a
-                href='//www.tiktok.com'
+                href='https://www.tiktok.com/@chargedmedia?is_from_webapp=1&sender_device=pc'
                 target='_blank'
                 rel='noreferrer'
                 aria-label='tiktok'
@@ -62,7 +62,7 @@ const Footer = () => {
                 Tiktok
               </a>
               <a
-                href='//www.youtube.com'
+                href='https://www.youtube.com/channel/UCXKvxe8LJnQPn5sr34wLqJQ'
                 target='_blank'
                 rel='noreferrer'
                 aria-label='youtube'
@@ -93,7 +93,7 @@ const Footer = () => {
             <div className='social-icons'>
               <a
                 className='social-icon-link'
-                href='//www.instagram.com'
+                href='https://www.instagram.com/chargedmedia_/'
                 rel='noreferrer'
                 target='_blank'
                 aria-label='instagram'
@@ -102,7 +102,7 @@ const Footer = () => {
               </a>
               <a
                 className='social-icon-link'
-                href='//www.tiktok.com'
+                href='https://www.tiktok.com/@chargedmedia?is_from_webapp=1&sender_device=pc'
                 rel='noreferrer'
                 target='_blank'
                 aria-label='tiktok'
@@ -111,14 +111,14 @@ const Footer = () => {
               </a>
               <a
                 className='social-icon-link'
-                href='//www.youtube.com'
+                href='https://www.youtube.com/channel/UCXKvxe8LJnQPn5sr34wLqJQ'
                 rel='noreferrer'
                 target='_blank'
                 aria-label='YouTube'
               >
                 <FaYoutube />
               </a>
-              <a
+              {/* <a
                 className='social-icon-link'
                 href='//www.twitter.com'
                 rel='noreferrer'
@@ -126,7 +126,7 @@ const Footer = () => {
                 aria-label='Twitter'
               >
                 <FaTwitter />
-              </a>
+              </a> */}
             </div>
           </div>
         </section>
@@ -136,10 +136,4 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-
-
-
-
 

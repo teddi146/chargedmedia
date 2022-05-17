@@ -108,23 +108,5 @@ social-icons {
   color: #81f7b6;
 }
 
-@media only screen and (max-width: 420px) {
-  .footer-link-items {
-    margin: 0;
-    padding: 10px;
-    width: 100%;
-  }
-}
 
-@media only screen and (max-width: 820px) {
-  .footer-links-container {
-    padding-top: 32px;
-  }
-  .footer-links-wrapper {
-    flex-direction: column;
-  }
-  .social-media-wrapper {
-    flex-direction: column;
-  }
-}
 
