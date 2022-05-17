@@ -33,7 +33,7 @@ const Navbar = () => {
               Porfolio
             </Link>
             <Link to='/pricing' className='navigation-links'>
-              Pricing
+              Services
             </Link>
             <Link to='/bookings' className='navigation-links'>
               Bookings

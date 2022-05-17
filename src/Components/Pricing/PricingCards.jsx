@@ -11,10 +11,10 @@ const Pricing = () => {
           <div className='col-lg-4 col-md-12 mb-4'>
             <div className='card card1 h-100'>
               <div className='card-body'>
-                <h5 className='card-title'>Basic</h5>
-                <small className='text-muted'>Individual</small>
+                <h5 className='card-title'>Photoshoot</h5>
+                <small className='text-muted'>Individual/Studio</small>
                 <br></br>
-                <span className='h2'>$8</span>/month
+                <span className='h2'>R550</span>/hr
                 <br></br>
                 <div className='d-grid my-3'>
                   <button className='btn btn-outline-dark btn-block'>
@@ -22,9 +22,9 @@ const Pricing = () => {
                   </button>
                 </div>
                 <ul>
-                  <li>Cras justo odio</li>
-                  <li>Dapibus ac facilisis in</li>
-                  <li>Vestibulum at eros</li>
+                  <li>30 Images</li>
+                  <li>15 professionally retouched images</li>
+                  <li>makeup & hair not included.</li>
                 </ul>
               </div>
             </div>
@@ -32,10 +32,10 @@ const Pricing = () => {
           <div className='col-lg-4 col-md-12 mb-4'>
             <div className='card card2 h-100'>
               <div className='card-body'>
-                <h5 className='card-title'>Standard</h5>
-                <small className='text-muted'>Small Business</small>
+                <h5 className='card-title'>Photoshoot</h5>
+                <small className='text-muted'>Individual/On-Location</small>
                 <br></br>
-                <span className='h2'>$20</span>/month
+                <span className='h2'>R750</span>/hr
                 <br></br>
                 <div className='d-grid my-3'>
                   <button className='btn btn-outline-dark btn-block'>
@@ -43,9 +43,9 @@ const Pricing = () => {
                   </button>
                 </div>
                 <ul>
-                  <li>Cras justo odio</li>
-                  <li>Dapibus ac facilisis in</li>
-                  <li>Vestibulum at eros</li>
+                  <li>30 Images</li>
+                  <li>15 professionally retouched images</li>
+                  <li>makeup & hair not included.</li>
                 </ul>
               </div>
             </div>
@@ -53,10 +53,10 @@ const Pricing = () => {
           <div className='col-lg-4 col-md-12 mb-4'>
             <div className='card card3 h-100'>
               <div className='card-body'>
-                <h5 className='card-title'>Premium</h5>
-                <small className='text-muted'>Large Company</small>
+                <h5 className='card-title'>Club Recap Video</h5>
+                <small className='text-muted'>Event/On-Location</small>
                 <br></br>
-                <span className='h2'>$40</span>/month
+                <span className='h2'>R1500</span>
                 <br></br>
                 <div className='d-grid my-3'>
                   <button className='btn btn-outline-dark btn-block'>
@@ -64,9 +64,9 @@ const Pricing = () => {
                   </button>
                 </div>
                 <ul>
-                  <li>Cras justo odio</li>
-                  <li>Dapibus ac facilisis in</li>
-                  <li>Vestibulum at eros</li>
+                  <li>1 minute Social Media Recap Video.</li>
+                  <li>Stunning Visual Effects.</li>
+                  <li>Completed Within 3 Days</li>
                 </ul>
               </div>
             </div>
@@ -78,3 +78,4 @@ const Pricing = () => {
 };
 
 export default Pricing;
+
