@@ -20,16 +20,19 @@ const Sidebar = () => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to='up' onClick={context.toggle}>
-            About
+          <SidebarLink to='/' onClick={context.toggle}>
+            Home
           </SidebarLink>
-          <SidebarLink to='use' onClick={context.toggle}>
-            How To Use
+          <SidebarLink to='/portfolio' onClick={context.toggle}>
+            Portfolio
           </SidebarLink>
-          <SidebarLink to='services' onClick={context.toggle}>
+          <SidebarLink to='/pricing' onClick={context.toggle}>
             Services
           </SidebarLink>
-          <SidebarLink to='contact' onClick={context.toggle}>
+          <SidebarLink to='/booking' onClick={context.toggle}>
+            Booking
+          </SidebarLink>
+          <SidebarLink to='/contact' onClick={context.toggle}>
             Contact
           </SidebarLink>
         </SidebarMenu>
