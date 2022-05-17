@@ -46,27 +46,39 @@ const Navbar = () => {
         <IconContext.Provider value={{ size: '1.5em' }}>
           <ul className='socials'>
             <li className='social-items'>
-              <a href='https://www.instagram.com' target='_blank'>
+              <a
+                href='https://www.instagram.com'
+                rel='noreferrer'
+                target='_blank'
+              >
                 <FaInstagram />
               </a>
             </li>
             <li className='social-items'>
-              <a href='https://www.tiktok.com' target='_blank'>
+              <a href='https://www.tiktok.com' target='_blank' rel='noreferrer'>
                 <FaTiktok />
               </a>
             </li>
             <li className='social-items'>
-              <a href='https://www.youtube.com' target='_blank'>
+              <a
+                href='https://www.youtube.com'
+                target='_blank'
+                rel='noreferrer'
+              >
                 <FaYoutube />
               </a>
             </li>
             <li className='social-items'>
-              <a href='https://www.twitter.com' target='_blank'>
+              <a
+                href='https://www.twitter.com'
+                target='_blank'
+                rel='noreferrer'
+              >
                 <FaTwitter />
               </a>
             </li>
             <li className='social-items'>
-              <a to='/'>
+              <a to='/' >
                 <FaUserAlt />
               </a>
             </li>
@@ -79,3 +91,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+

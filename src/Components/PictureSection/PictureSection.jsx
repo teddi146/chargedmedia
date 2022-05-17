@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
+import SliderNav from '../SliderNav/SliderNav';
 
 import './pictureSection.css';
 
@@ -45,47 +46,40 @@ const PictureSection = ({ pictureData }) => {
       <section className='picture-section'>
         <BsChevronLeft className='left-arrow' onClick={prevSlide} />
         <BsChevronRight className='right-arrow' onClick={nextSlide} />
-        {pictureData.map((image, i) => {
-          return (
-            <React.Fragment key={image.title}>
-              <img
-                id='pictureSectionImage'
-                className={`picture-slide ${index === i ? 'active' : ''}`}
-                src={image.image}
-                alt={image.title}
-              />
-              <div
-                className={`content ${index === i ? 'active' : ''}`}
-                key={image.title}
-              >
-                <h1>
-                  {image.title}
-                  <br></br>
-                  <span>{image.subtitle}</span>
-                </h1>
-                <p>{image.detail}</p>
-                {/* <a href='#'>Read More</a> */}
-                <button href='#'>View On Instagram</button>
-              </div>
-            </React.Fragment>
-          );
-        })}
-        <div className='slider-navigation'>
-          {pictureData.map((_, i) => {
+        <div className='hero-container'>
+          {pictureData.map((image, i) => {
             return (
-              <div
-                className={`nav-btn ${index === i ? 'active' : ''}`}
-                key={_.title}
-                onClick={() => {
-                  setIndex(i);
-                }}
-              ></div>
+              <div key={image.title}>
+                <img
+                  id='pictureSectionImage'
+                  className={`picture-slide ${index === i ? 'active' : ''}`}
+                  src={image.image}
+                  alt={image.title}
+                />
+
+                <div
+                  className={`content ${index === i ? 'active' : ''}`}
+                  key={image.title}
+                >
+                  <h1>
+                    {image.title}
+                    <br></br>
+                    <span>{image.subtitle}</span>
+                  </h1>
+                  <p>{image.detail}</p>
+                  {/* <a href='#'>Read More</a> */}
+                  <button href='#'>View On Instagram</button>
+                </div>
+              </div>
             );
           })}
+          <div className='shade'></div>
         </div>
+        <SliderNav data={pictureData} index={index} setIndex={setIndex} />
       </section>
     </>
   );
 };
 
 export default PictureSection;
+

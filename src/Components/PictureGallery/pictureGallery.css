@@ -88,7 +88,7 @@
   z-index: 999;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .gallery {
     margin-top: 120px;
     -webkit-column-count: 2;
@@ -109,11 +109,10 @@
   }
 }
 
-.img-wrapper {
+/* .img-wrapper {
   height: 100vh;
   flex: 33%;
   margin: 10px;
-  /* padding: 10px; */
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
 }
@@ -142,5 +141,5 @@
 .img-column img {
   vertical-align: middle;
   width: 100%;
-}
+} */
 

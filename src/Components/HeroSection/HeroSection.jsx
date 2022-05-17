@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import './heroSection.css';
+import testvideo from '../../res/video/Audio Czzle.mp4';
+import HeroVideo from '../HeroVideo/HeroVideo';
+import SliderNav from '../SliderNav/SliderNav';
 
-const HeroSection = ({ heroData }) => {
+const HeroSection = ({ heroData, Component }) => {
   const [index, setIndex] = useState(0);
   const slides = document.querySelectorAll('.video-slide');
   const delay = 5000;
   const timeoutRef = useRef(null);
   const videoRef = useRef(null);
+  const video = document.getElementById(`${index}`);
 
   const resetTimeout = () => {
     if (timeoutRef.current) {
@@ -16,9 +20,27 @@ const HeroSection = ({ heroData }) => {
   };
 
   const handlePause = () => {
-    if (videoRef.current.className === 'video-slide active') {
-      videoRef.current.play();
-      console.log('if-1');
+    videoRef.current.pause();
+  };
+  const handlePlay = () => {
+    videoRef.current.play();
+  };
+
+  const togglePlay = () => {
+    // if (videoRef.current.paused) {
+    //   handlePlay();
+    // } else {
+    //   handlePause();
+    // }
+
+    console.log(videoRef.current.id + '  ' + index);
+    // console.log(video.id);
+    if (index === index) {
+      handlePlay();
+      console.log('playing');
+    } else {
+      handlePause();
+      console.log('esle paused');
     }
   };
 
@@ -30,8 +52,8 @@ const HeroSection = ({ heroData }) => {
           prevIndex === slides.length - 1 ? 0 : prevIndex + 1,
         ),
       delay,
+      togglePlay(),
     );
-    // handlePause();
 
     return () => {};
   }, [index, slides.length]);
@@ -39,54 +61,48 @@ const HeroSection = ({ heroData }) => {
   return (
     <>
       <section className='home'>
-        {heroData.map((video, i) => {
-          return (
-            <React.Fragment key={video.title}>
-              <video
-                id='headerVideo'
-                className={`video-slide ${index === i ? 'active' : ''}`}
-                src={video.video}
-                autoPlay
-                muted
-                loop
-                ref={videoRef}
-                // onMouseOver={clearTimeout(delay)}
-                // onMouseOut={resetTimeout()}
-              />
-
-              <div
-                className={`content ${index === i ? 'active' : ''}`}
-                key={video.title}
-              >
-                <h1>
-                  {video.title}
-                  <br></br>
-                  <span>{video.subtitle}</span>
-                </h1>
-                <p>{video.detail}</p>
-                {/* <a href='#'>Read More</a> */}
-                <button href='#'>View On Youtube</button>
-              </div>
-            </React.Fragment>
-          );
-        })}
-
-        <div className='slider-navigation'>
-          {heroData.map((_, i) => {
+        <div className='hero-container'>
+          {heroData.map((video, i) => {
             return (
               <div
-                className={`nav-btn ${index === i ? 'active' : ''}`}
-                key={_.title}
-                onClick={() => {
-                  setIndex(i);
-                }}
-              ></div>
+                style={{ width: '100%;', height: '100%;' }}
+                key={video.title}
+              >
+                <HeroVideo
+                  i={i}
+                  index={index}
+                  video={video}
+                  videoRef={videoRef}
+                />
+
+                <div
+                  className={`content ${index === i ? 'active' : ''}`}
+                  key={video.title}
+                >
+                  <h1>
+                    {video.title}
+                    <br></br>
+                    <span>{video.subtitle}</span>
+                  </h1>
+                  <p>{video.detail}</p>
+                  {/* <a href='#'>Read More</a> */}
+                  <button
+                    style={{ width: '230px', height: 'fit-content' }}
+                    href='#'
+                  >
+                    View On Youtube
+                  </button>
+                </div>
+              </div>
             );
           })}
+          <div className='shade'></div>
         </div>
+        <SliderNav data={heroData} index={index} setIndex={setIndex} />
       </section>
     </>
   );
 };
 
 export default HeroSection;
+

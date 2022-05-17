@@ -46,6 +46,7 @@ const Footer = () => {
               <a
                 href='//www.instagram.com'
                 target='_blank'
+                rel='noreferrer'
                 aria-label='instagram'
                 className='footer-link'
               >
@@ -54,6 +55,7 @@ const Footer = () => {
               <a
                 href='//www.tiktok.com'
                 target='_blank'
+                rel='noreferrer'
                 aria-label='tiktok'
                 className='footer-link'
               >
@@ -62,6 +64,7 @@ const Footer = () => {
               <a
                 href='//www.youtube.com'
                 target='_blank'
+                rel='noreferrer'
                 aria-label='youtube'
                 className='footer-link'
               >
@@ -70,6 +73,7 @@ const Footer = () => {
               <a
                 href='//www.twitter.com'
                 target='_blank'
+                rel='noreferrer'
                 aria-label='twitter'
                 className='footer-link'
               >
@@ -90,6 +94,7 @@ const Footer = () => {
               <a
                 className='social-icon-link'
                 href='//www.instagram.com'
+                rel='noreferrer'
                 target='_blank'
                 aria-label='instagram'
               >
@@ -98,6 +103,7 @@ const Footer = () => {
               <a
                 className='social-icon-link'
                 href='//www.tiktok.com'
+                rel='noreferrer'
                 target='_blank'
                 aria-label='tiktok'
               >
@@ -106,6 +112,7 @@ const Footer = () => {
               <a
                 className='social-icon-link'
                 href='//www.youtube.com'
+                rel='noreferrer'
                 target='_blank'
                 aria-label='YouTube'
               >
@@ -114,6 +121,7 @@ const Footer = () => {
               <a
                 className='social-icon-link'
                 href='//www.twitter.com'
+                rel='noreferrer'
                 target='_blank'
                 aria-label='Twitter'
               >
@@ -128,3 +136,10 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+
+
+
+

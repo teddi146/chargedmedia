@@ -34,7 +34,7 @@ const PictureGallery = ({ pictureData }) => {
         >
           Photography
         </h1>
-        {/* {pictureData.map((image, index) => {
+        {pictureData.map((image, index) => {
           return (
             <div
               className='picture-gallery'
@@ -46,8 +46,8 @@ const PictureGallery = ({ pictureData }) => {
               <img src={image.image} alt='' style={{ width: '100%' }} />
             </div>
           );
-        })} */}
-        <div className='img-row'>
+        })}
+        {/* <div className='img-row'>
           {pictureData.map((image, index) => {
             return (
               <div
@@ -63,7 +63,7 @@ const PictureGallery = ({ pictureData }) => {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
       <div className='gallery'>
         {' '}

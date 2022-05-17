@@ -99,4 +99,3 @@ export const pictureData = [
     detail: 'detail15',
   },
 ];
-
