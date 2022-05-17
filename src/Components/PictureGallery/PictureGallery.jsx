@@ -66,9 +66,8 @@ const PictureGallery = ({ pictureData }) => {
         </div> */}
       </div>
       <div className='gallery'>
-        {' '}
-        <h1>Videography</h1>
-        {heroData.map((video, index) => {
+        {/* <h1>Videography</h1> */}
+        {/* {heroData.map((video, index) => {
           return (
             <div
               className='picture-gallery'
@@ -88,7 +87,7 @@ const PictureGallery = ({ pictureData }) => {
               />
             </div>
           );
-        })}
+        })} */}
       </div>
     </>
   );
