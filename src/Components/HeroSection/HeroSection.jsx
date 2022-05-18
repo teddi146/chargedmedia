@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import './heroSection.css';
-import testvideo from '../../res/video/Audio Czzle.mp4';
+import testvideo from '../../assets/video/Audio Czzle.mp4';
 import HeroVideo from '../HeroVideo/HeroVideo';
 import SliderNav from '../SliderNav/SliderNav';
 

@@ -27,8 +27,9 @@
 }
 
 .home .content.active {
-  display: block;
-  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .home .content h1 {
   font-size: 4em;
@@ -87,10 +88,25 @@
   transition-property: clip-path;
 }
 
-@media  screen and (max-width:672) {
-    .home .content h1 {
-    font-size: 0.3em;
-    line-height: 60px;
+@media screen and (max-width: 672) {
+  .home .content h1 {
+    font-size: 0.5em;
+    line-height: 20px;
+    margin-bottom: 10px;
   }
-  
+  .home .content h1 span {
+    font-size: 0.2em;
+  }
+}
+
+@media screen and (max-width: 990) {
+  .home .content h1 {
+    font-size: 2em;
+    line-height: 50px;
+    margin-bottom: 20px;
+  }
+  .home .content h1 span {
+    font-size: 0.4em;
+    font-weight: 600;
+  }
 }

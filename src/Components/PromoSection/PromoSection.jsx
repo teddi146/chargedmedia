@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
+import LazyLoad from 'react-lazyload';
 
 import { promoData } from './promoData';
 import SliderNav from '../SliderNav/SliderNav';
@@ -105,12 +106,19 @@ const PromoSection = () => {
             return (
               <div key={image.title}>
                 <div className='img-wrapper'>
-                  <img
-                    id='promoImg'
-                    className={`promo-slide ${index === i ? 'active' : ''}`}
-                    src={image.image}
-                    alt={image.title}
-                  />
+                  <LazyLoad
+                    height={'100%'}
+                    // unmountIfInvisible={true}
+                    debounce={true}
+                    throttle
+                  >
+                    <img
+                      id='promoImg'
+                      className={`promo-slide ${index === i ? 'active' : ''}`}
+                      src={image.image}
+                      alt={image.title}
+                    />
+                  </LazyLoad>
                 </div>
                 <div
                   className={`promo-content ${index === i ? 'active' : ''}`}

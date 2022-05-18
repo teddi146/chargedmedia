@@ -1,20 +1,20 @@
-import vid1 from '../../res/video/Alostro.mp4';
-import thumbnail1 from '../../res/images/thumbnails/Alostro.png';
-import thumbnail2 from '../../res/images/thumbnails/AudioCzzle.png';
-import thumbnail3 from '../../res/images/thumbnails/Big Time Schalap.png';
-import thumbnail4 from '../../res/images/thumbnails/Hamba Nobani.png';
-import thumbnail5 from '../../res/images/thumbnails/Home.png';
-import thumbnail6 from '../../res/images/thumbnails/How you Feel.png';
-import thumbnail7 from '../../res/images/thumbnails/Late Nights.png';
-import thumbnail8 from '../../res/images/thumbnails/Msholozi.png';
+import vid1 from '../../assets/video/Alostro.mp4';
+import thumbnail1 from '../../assets/images/thumbnails/Alostro.png';
+import thumbnail2 from '../../assets/images/thumbnails/AudioCzzle.png';
+import thumbnail3 from '../../assets/images/thumbnails/Big Time Schalap.png';
+import thumbnail4 from '../../assets/images/thumbnails/Hamba Nobani.png';
+import thumbnail5 from '../../assets/images/thumbnails/Home.png';
+import thumbnail6 from '../../assets/images/thumbnails/How you Feel.png';
+import thumbnail7 from '../../assets/images/thumbnails/Late Nights.png';
+import thumbnail8 from '../../assets/images/thumbnails/Msholozi.png';
 
-import vid2 from '../../res/video/Audio Czzle.mp4';
-import vid3 from '../../res/video/Big Time Schlappa.mp4';
-import vid4 from '../../res/video/Hamba No Bani.mp4';
-import vid5 from '../../res/video/Home.mp4';
-import vid6 from '../../res/video/How You Feel.mp4';
-import vid7 from '../../res/video/Late Nights.mp4';
-import vid8 from '../../res/video/msholozi.mp4';
+import vid2 from '../../assets/video/Audio Czzle.mp4';
+import vid3 from '../../assets/video/Big Time Schlappa.mp4';
+import vid4 from '../../assets/video/Hamba No Bani.mp4';
+import vid5 from '../../assets/video/Home.mp4';
+import vid6 from '../../assets/video/How You Feel.mp4';
+import vid7 from '../../assets/video/Late Nights.mp4';
+import vid8 from '../../assets/video/msholozi.mp4';
 
 export const heroData = [
   {

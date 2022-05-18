@@ -1,9 +1,9 @@
-import coupleImage from '../../res/images/Sample Images/gallery 1.jpg';
-import coupleImage2 from '../../res/images/Sample Images/gallery 2.jpg';
-import familyImage from '../../res/images/Sample Images/gallery 3.jpg';
-import familyImage2 from '../../res/images/Sample Images/gallery 4.jpg';
-import hour3Image from '../../res/images/Sample Images/Portrait.jpg';
-import hour3Image2 from '../../res/images/Sample Images/Portrait2.jpg';
+import coupleImage from '../../assets/images/Sample Images/gallery 1.jpg';
+import coupleImage2 from '../../assets/images/Sample Images/gallery 2.jpg';
+import familyImage from '../../assets/images/Sample Images/gallery 3.jpg';
+import familyImage2 from '../../assets/images/Sample Images/gallery 4.jpg';
+import hour3Image from '../../assets/images/Sample Images/Portrait.jpg';
+import hour3Image2 from '../../assets/images/Sample Images/Portrait2.jpg';
 
 export const promoData = [
   {

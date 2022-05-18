@@ -1,7 +1,9 @@
 import React from 'react';
+import LazyLoad from 'react-lazyload';
+
 import Contact from '../Components/Contact/ContactForm';
 import '../Components/Contact/contactForm.css';
-import ContactImg from '../res/images/Sample Images/Videography2.jpg';
+import ContactImg from '../assets/images/Sample Images/Videography2.jpg';
 
 const ContactPage = () => {
   return (
@@ -13,7 +15,14 @@ const ContactPage = () => {
             <p className='contact-p'>Feel free to contact us</p>
           </div>
           <div className='img-wrapper-contact'>
-            <img src={ContactImg} alt='contact logo' />{' '}
+            <LazyLoad
+              height={'100%'}
+              // unmountIfInvisible={true}
+              debounce={true}
+              throttle
+            >
+              <img src={ContactImg} alt='contact logo' />{' '}
+            </LazyLoad>
           </div>
           <div className='shade'></div>
         </div>

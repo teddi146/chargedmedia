@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
-import SliderNav from '../SliderNav/SliderNav';
+import LazyLoad from 'react-lazyload';
 
+import SliderNav from '../SliderNav/SliderNav';
 import './pictureSection.css';
 
 const PictureSection = ({ pictureData }) => {
@@ -50,12 +51,19 @@ const PictureSection = ({ pictureData }) => {
           {pictureData.map((image, i) => {
             return (
               <div key={image.title}>
-                <img
-                  id='pictureSectionImage'
-                  className={`picture-slide ${index === i ? 'active' : ''}`}
-                  src={image.image}
-                  alt={image.title}
-                />
+                <LazyLoad
+                  height={'100%'}
+                  // unmountIfInvisible={true}
+                  debounce={true}
+                  throttle
+                >
+                  <img
+                    id='pictureSectionImage'
+                    className={`picture-slide ${index === i ? 'active' : ''}`}
+                    src={image.image}
+                    alt={image.title}
+                  />
+                </LazyLoad>
 
                 <div
                   className={`content ${index === i ? 'active' : ''}`}
@@ -82,4 +90,5 @@ const PictureSection = ({ pictureData }) => {
 };
 
 export default PictureSection;
+
 

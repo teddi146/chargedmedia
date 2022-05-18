@@ -1,17 +1,17 @@
-import pic1 from '../../res/images/gallery/model1.JPG';
-import pic2 from '../../res/images/gallery/model2.JPG';
-import pic3 from '../../res/images/gallery/model3.JPG';
-import pic5 from '../../res/images/gallery/model5.JPG';
-import pic6 from '../../res/images/gallery/Cumi-1.jpg';
-import pic7 from '../../res/images/gallery/Cumi-2.jpg';
-import pic8 from '../../res/images/gallery/Cumi-3.jpg';
-import pic9 from '../../res/images/gallery/Cumi-4.jpg';
-import pic10 from '../../res/images/gallery/Cumi-5.jpg';
-import pic11 from '../../res/images/gallery/Cumi-6.jpg';
-import pic12 from '../../res/images/gallery/Cumi-7.jpg';
-import pic13 from '../../res/images/gallery/Cumi-8.jpg';
-import pic14 from '../../res/images/gallery/Cumi-9.jpg';
-import pic15 from '../../res/images/gallery/Cumi-10.jpg';
+import pic1 from '../../assets/images/gallery/model1.JPG';
+import pic2 from '../../assets/images/gallery/model2.JPG';
+import pic3 from '../../assets/images/gallery/model3.JPG';
+import pic5 from '../../assets/images/gallery/model5.JPG';
+import pic6 from '../../assets/images/gallery/Cumi-1.jpg';
+import pic7 from '../../assets/images/gallery/Cumi-2.jpg';
+import pic8 from '../../assets/images/gallery/Cumi-3.jpg';
+import pic9 from '../../assets/images/gallery/Cumi-4.jpg';
+import pic10 from '../../assets/images/gallery/Cumi-5.jpg';
+import pic11 from '../../assets/images/gallery/Cumi-6.jpg';
+import pic12 from '../../assets/images/gallery/Cumi-7.jpg';
+import pic13 from '../../assets/images/gallery/Cumi-8.jpg';
+import pic14 from '../../assets/images/gallery/Cumi-9.jpg';
+import pic15 from '../../assets/images/gallery/Cumi-10.jpg';
 
 export const pictureData = [
   {

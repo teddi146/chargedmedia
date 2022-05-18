@@ -13,7 +13,7 @@ import {
 import { FiMenu } from 'react-icons/fi';
 
 import './navbar.css';
-import Logo from '../../res/images/gallery/Web_150Artboard 1.png';
+import Logo from '../../assets/images/gallery/Web_150Artboard 1.png';
 import AuthContext from '../../Context/authContext';
 
 const Navbar = () => {
