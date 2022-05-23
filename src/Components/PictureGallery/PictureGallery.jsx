@@ -20,14 +20,14 @@ const PictureGallery = ({ pictureData }) => {
         <IconContext.Provider value={{ color: '#fff' }}>
           <GrClose className='close-btn' onClick={() => setModal(false)} />
         </IconContext.Provider>
-        <LazyLoad
+        {/* <LazyLoad
           height={'100%'}
           // unmountIfInvisible={true}
           debounce={true}
           throttle
-        >
+        > */}
           <img src={tempImg} alt='' />
-        </LazyLoad>
+        {/* </LazyLoad> */}
       </div>
       <div className='gallery'>
         <h1

@@ -27,21 +27,23 @@ const HeroSection = ({ heroData, Component }) => {
   };
 
   const togglePlay = () => {
-    // if (videoRef.current.paused) {
-    //   handlePlay();
-    // } else {
-    //   handlePause();
-    // }
-
-    console.log(videoRef.current.id + '  ' + index);
-    // console.log(video.id);
-    if (index === index) {
+    if (videoRef.current.paused) {
       handlePlay();
-      console.log('playing');
+      console.log('playig');
     } else {
       handlePause();
-      console.log('esle paused');
+      console.log('piause');
     }
+
+    // console.log(videoRef.current.id + '  ' + index);
+    // // console.log(video.id);
+    // if (index === index) {
+    //   handlePlay();
+    //   console.log('playing');
+    // } else {
+    //   handlePause();
+    //   console.log('esle paused');
+    // }
   };
 
   useEffect(() => {
@@ -85,7 +87,7 @@ const HeroSection = ({ heroData, Component }) => {
                     <span>{video.subtitle}</span>
                   </h1>
                   <p>{video.detail}</p>
-                  {/* <a href='#'>Read More</a> */}
+
                   <button
                     style={{ width: '230px', height: 'fit-content' }}
                     href='#'
@@ -96,7 +98,7 @@ const HeroSection = ({ heroData, Component }) => {
               </div>
             );
           })}
-          <div className='shade'></div>
+          {/* <div className='shade'></div> */}
         </div>
         <SliderNav data={heroData} index={index} setIndex={setIndex} />
       </section>

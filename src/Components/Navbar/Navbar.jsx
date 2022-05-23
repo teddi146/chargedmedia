@@ -9,7 +9,9 @@ import {
   FaYoutube,
   FaTiktok,
   FaUserAlt,
+  FaShoppingCart,
 } from 'react-icons/fa';
+import { AiFillInstagram } from 'react-icons/ai';
 import { FiMenu } from 'react-icons/fi';
 
 import './navbar.css';
@@ -67,7 +69,7 @@ const Navbar = () => {
                 rel='noreferrer'
                 target='_blank'
               >
-                <FaInstagram />
+                <AiFillInstagram />
               </a>
             </li>
             <li className='social-items'>
@@ -98,7 +100,12 @@ const Navbar = () => {
               </a>
             </li> */}
             <li className='social-items'>
-              <a to='/'>
+              <a href='/checkout'>
+                <FaShoppingCart />
+              </a>
+            </li>
+            <li className='social-items'>
+              <a href='/' >
                 <FaUserAlt />
               </a>
             </li>
