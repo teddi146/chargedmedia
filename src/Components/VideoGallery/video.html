@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./videoGallery.css" />
+  </head>
+  <body>
+    <h3 class="heading">Video Gallery</h3>
+    <div class="container">
+      <div class="main-video">
+        <div class="video">
+          <video
+            src="../../assets/video/Big Time Schlappa.mp4"
+            controls
+            muted
+            autoplay
+          ></video>
+          <h3 class="title">01. Video Title</h3>
+        </div>
+      </div>
+      <div class="video-list">
+        <div class="vid active">
+          <video src="../../assets/video/Hamba No Bani.mp4" muted></video>
+          <h3 class="title">01. Video title</h3>
+        </div>
+        <div class="vid">
+          <video src="../../assets/video/Audio Czzle.mp4" muted></video>
+          <h3 class="title">02. Video title</h3>
+        </div>
+        <div class="vid">
+          <video src="../../assets/video/Alostro.mp4" muted></video>
+          <h3 class="title">03. Video title</h3>
+        </div>
+        <div class="vid">
+          <video src="../../assets/video/Big Time Schlappa.mp4" muted></video>
+          <h3 class="title">04. Video title</h3>
+        </div>
+        <div class="vid">
+          <video src="../../assets/video/Home.mp4" muted></video>
+          <h3 class="title">05. Video title</h3>
+        </div>
+        <div class="vid">
+          <video src="../../assets/video/How You Feel.mp4" muted></video>
+          <h3 class="title">06. Video title</h3>
+        </div>
+      </div>
+    </div>
+    <script>
+      let listVideo = document.querySelectorAll('.video-list .vid');
+      let mainVideo = document.querySelector('.main-video video');
+      let title = document.querySelector('.main-video .title');
+
+      listVideo.forEach((video) => {
+        video.onclick = () => {
+          listVideo.forEach((vid) => vid.classList.remove('active'));
+          video.classList.add('active');
+          if (video.classList.contains('active')) {
+            let src = video.children[0].getAttribute('src');
+            mainVideo.src = src;
+            let text = video.children[1].innerHTML;
+            title.innerHTML = text;
+            window.scroll({
+              top: 0,
+              left: 0,
+              behavior: 'smooth',
+            });
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

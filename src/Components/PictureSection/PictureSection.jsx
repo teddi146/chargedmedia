@@ -51,19 +51,12 @@ const PictureSection = ({ pictureData }) => {
           {pictureData.map((image, i) => {
             return (
               <div key={image.title}>
-                <LazyLoad
-                  height={'100%'}
-                  // unmountIfInvisible={true}
-                  debounce={true}
-                  throttle
-                >
-                  <img
-                    id='pictureSectionImage'
-                    className={`picture-slide ${index === i ? 'active' : ''}`}
-                    src={image.image}
-                    alt={image.title}
-                  />
-                </LazyLoad>
+                <img
+                  id='pictureSectionImage'
+                  className={`picture-slide ${index === i ? 'active' : ''}`}
+                  src={image.image}
+                  alt={image.title}
+                />
 
                 <div
                   className={`content ${index === i ? 'active' : ''}`}
@@ -81,7 +74,7 @@ const PictureSection = ({ pictureData }) => {
               </div>
             );
           })}
-          <div className='shade'></div>
+          {/* <div className='shade'></div> */}
         </div>
         <SliderNav data={pictureData} index={index} setIndex={setIndex} />
       </section>
@@ -90,5 +83,4 @@ const PictureSection = ({ pictureData }) => {
 };
 
 export default PictureSection;
-
 

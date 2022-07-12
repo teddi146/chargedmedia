@@ -5,6 +5,7 @@ import LazyLoad from 'react-lazyload';
 import { promoData } from './promoData';
 import SliderNav from '../SliderNav/SliderNav';
 import './promoSection.css';
+import { IconContext } from 'react-icons/lib';
 
 const PromoSection = () => {
   const [index, setIndex] = useState(0);
@@ -45,107 +46,53 @@ const PromoSection = () => {
   }
 
   return (
-    // <section className='promo-section'>
-    //   <BsChevronLeft className='left-arrow' onClick={prevSlide} />
-    //   <BsChevronRight className='right-arrow' onClick={nextSlide} />
-
-    //   {promoData.map((data, i) => {
-    //     return (
-    //       <div
-    //         key={`hero ${i}`}
-    //         className={`hero-container promo-slide ${
-    //           index === i ? 'active' : ''
-    //         }`}
-    //       >
-    //         <div className='promo-hero'>
-    //           <div className='img-wrapper'>
-    //             <img
-    //               id='promoImg'
-    //               className={`promo-slide ${index === i ? 'active' : ''}`}
-    //               src={data.image}
-    //               alt=''
-    //             />
-    //           </div>
-
-    //           <div
-    //             className={`promo-content ${index === 1 ? 'active' : ''}`}
-    //             key={`content ${i}`}
-    //           >
-    //             <h1 className='promo-title'>{data.title}</h1>
-    //             <h2 className='promo-subtitle'>{data.subtitle}</h2>
-    //             <h1 className='promo-price'>R{data.price}</h1>
-    //             <button className='add-to-cart' style={{ width: '200px' }}>
-    //               Add To Cart
-    //             </button>
-    //             <ul>
-    //               <li className='promo-item' key={`item ${i}`}>
-    //                 {data.detail1}
-    //               </li>
-    //               <li className='promo-item' key={`item ${i + 1}`}>
-    //                 {data.detail2}
-    //               </li>
-    //               <li className='promo-item' key={`item ${i + 2}`}>
-    //                 {data.detail3}
-    //               </li>
-    //             </ul>
-    //           </div>
-    //         </div>{' '}
-    //       </div>
-    //     );
-    //   })}
-
-    //   <SliderNav data={promoData} index={index} setIndex={setIndex} />
-    // </section>
-
     <>
       <section className='promo-section'>
-        <BsChevronLeft className='left-arrow' onClick={prevSlide} />
-        <BsChevronRight className='right-arrow' onClick={nextSlide} />
+        <IconContext.Provider value={{ color: '#81f7b6' }}>
+          <BsChevronLeft className='left-arrow' onClick={prevSlide} />
+          <BsChevronRight className='right-arrow' onClick={nextSlide} />
+        </IconContext.Provider>
         <div className='promo-hero'>
+          {' '}
           {promoData.map((image, i) => {
             return (
-              <div key={image.title}>
+              <div
+                className={`content-container  ${index === i ? 'active' : ''}`}
+                key={i}
+              >
                 <div className='img-wrapper'>
-                  <LazyLoad
-                    height={'100%'}
-                    // unmountIfInvisible={true}
-                    debounce={true}
-                    throttle
+                  <img
+                    id='promoImg'
+                    className={`promo-slide ${index === i ? 'active' : ''}`}
+                    src={image.image}
+                    alt={image.title}
+                  />
+                  <div
+                    className={`promo-content ${index === i ? 'active' : ''}`}
+                    key={image.title}
                   >
-                    <img
-                      id='promoImg'
-                      className={`promo-slide ${index === i ? 'active' : ''}`}
-                      src={image.image}
-                      alt={image.title}
-                    />
-                  </LazyLoad>
-                </div>
-                <div
-                  className={`promo-content ${index === i ? 'active' : ''}`}
-                  key={image.title}
-                >
-                  <h1 className='promo-title'>{image.title}</h1>
-                  <h2 className='promo-subtitle'>{image.subtitle}</h2>
-                  <h1 className='promo-price'>R{image.price}</h1>
-                  <button className='add-to-cart' style={{ width: '200px' }}>
-                    Add To Cart
-                  </button>
-                  <ul>
-                    <li className='promo-item' key={`item ${i}`}>
-                      {image.detail1}
-                    </li>
-                    <li className='promo-item' key={`item ${i + 1}`}>
-                      {image.detail2}
-                    </li>
-                    <li className='promo-item' key={`item ${i + 2}`}>
-                      {image.detail3}
-                    </li>
-                  </ul>
+                    <h1 className='promo-title'>{image.title}</h1>
+                    <h2 className='promo-subtitle'>{image.subtitle}</h2>
+                    <h1 className='promo-price'>R{image.price}</h1>
+                    <button className='add-to-cart' style={{ width: '200px' }}>
+                      Add To Cart
+                    </button>
+                    <ul>
+                      <li className='promo-item' key={`item ${i}`}>
+                        {image.detail1}
+                      </li>
+                      <li className='promo-item' key={`item ${i + 1}`}>
+                        {image.detail2}
+                      </li>
+                      <li className='promo-item' key={`item ${i + 2}`}>
+                        {image.detail3}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             );
           })}
-          {/* <div className='shade'></div> */}
         </div>
         <SliderNav data={promoData} index={index} setIndex={setIndex} />
       </section>

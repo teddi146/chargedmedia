@@ -15,6 +15,9 @@ import vid5 from '../../assets/video/Home.mp4';
 import vid6 from '../../assets/video/How You Feel.mp4';
 import vid7 from '../../assets/video/Late Nights.mp4';
 import vid8 from '../../assets/video/msholozi.mp4';
+import vid9 from '../../assets/video/Drama_cumi.mp4';
+import vid10 from '../../assets/video/Drama 2_1.mp4';
+import vid11 from '../../assets/video/Drama 3.mp4';
 
 export const heroData = [
   {
@@ -76,6 +79,30 @@ export const heroData = [
   {
     video: vid8,
     title: 'title8 ',
+    subtitle: 'subtitle8',
+    detail:
+      'Detail 8 Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem qui maxime voluptates id quas eos enim cupiditate deserunt quis ea!',
+    thumbnail: thumbnail8,
+  },
+  {
+    video: vid9,
+    title: 'title9 ',
+    subtitle: 'subtitle8',
+    detail:
+      'Detail 8 Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem qui maxime voluptates id quas eos enim cupiditate deserunt quis ea!',
+    thumbnail: thumbnail8,
+  },
+  {
+    video: vid10,
+    title: 'title10 ',
+    subtitle: 'subtitle8',
+    detail:
+      'Detail 8 Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem qui maxime voluptates id quas eos enim cupiditate deserunt quis ea!',
+    thumbnail: thumbnail8,
+  },
+  {
+    video: vid11,
+    title: 'title11 ',
     subtitle: 'subtitle8',
     detail:
       'Detail 8 Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem qui maxime voluptates id quas eos enim cupiditate deserunt quis ea!',

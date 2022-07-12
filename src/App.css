@@ -6,6 +6,11 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+body {
+  width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+}
 
 .shade {
   width: 100%;
@@ -19,9 +24,9 @@
 .right-arrow {
   position: absolute;
   top: 50%;
-  right: 32px;
+  right: 3rem;
   font-size: 3rem;
-  color: #000;
+  color: #81f7b6;
   z-index: 999;
   cursor: pointer;
   user-select: none;
@@ -29,9 +34,9 @@
 .left-arrow {
   position: absolute;
   top: 50%;
-  left: 32px;
+  left: 3rem;
   font-size: 3rem;
-  color: #000;
+  color: #81f7b6;
   z-index: 999;
   cursor: pointer;
   user-select: none;
@@ -41,9 +46,9 @@
   width: fit-content;
   height: fit-content;
   position: absolute;
-  bottom: 120px;
+  bottom: 3.75rem;
   display: flex;
-  transform: translateY(80px);
+  /* transform: translateY(80px); */
   z-index: 887;
 }
 

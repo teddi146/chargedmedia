@@ -21,6 +21,10 @@ header .brand {
   text-decoration: none;
   font-family: 'AlishaFree';
 }
+.img-wrapper {
+  width: fit-content;
+  height: 100%;
+}
 
 .brand:hover {
   color: #9225fe;

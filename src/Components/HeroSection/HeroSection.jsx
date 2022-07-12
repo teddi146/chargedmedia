@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import './heroSection.css';
-import testvideo from '../../assets/video/Audio Czzle.mp4';
 import HeroVideo from '../HeroVideo/HeroVideo';
 import SliderNav from '../SliderNav/SliderNav';
 
@@ -11,7 +10,7 @@ const HeroSection = ({ heroData, Component }) => {
   const delay = 5000;
   const timeoutRef = useRef(null);
   const videoRef = useRef(null);
-  const video = document.getElementById(`${index}`);
+  const videos = document.querySelectorAll('.video-slide');
 
   const resetTimeout = () => {
     if (timeoutRef.current) {
@@ -19,31 +18,44 @@ const HeroSection = ({ heroData, Component }) => {
     }
   };
 
-  const handlePause = () => {
-    videoRef.current.pause();
+  const handlePause = async (video) => {
+    try {
+      await video.pause();
+      console.log('paused');
+    } catch (err) {
+      console.log(err);
+    }
   };
-  const handlePlay = () => {
-    videoRef.current.play();
+
+  const handlePlay = async (video) => {
+    try {
+      await video.play();
+      console.log('playing');
+    } catch (err) {
+      console.log(err);
+      await video.pause();
+    }
   };
 
   const togglePlay = () => {
-    if (videoRef.current.paused) {
-      handlePlay();
-      console.log('playig');
-    } else {
-      handlePause();
-      console.log('piause');
-    }
+    videos.forEach((video, i) => {
+      if (index === i) {
+        handlePlay(video);
+      } else if (index - 1 < index) {
+        handlePause(videos[index - 1]);
+      }
 
-    // console.log(videoRef.current.id + '  ' + index);
-    // // console.log(video.id);
-    // if (index === index) {
-    //   handlePlay();
-    //   console.log('playing');
-    // } else {
-    //   handlePause();
-    //   console.log('esle paused');
-    // }
+      // if (index === i) {
+      //   handlePlay(video);
+      // } else if (videos.length - 1) {
+      //   try {
+      //     videos[index - 1].pause();
+      //   } catch (err) {
+      //     console.log(err);
+      //     console.log('paused');
+      //   }
+      // }
+    });
   };
 
   useEffect(() => {
@@ -54,7 +66,7 @@ const HeroSection = ({ heroData, Component }) => {
           prevIndex === slides.length - 1 ? 0 : prevIndex + 1,
         ),
       delay,
-      togglePlay(),
+      // togglePlay(),
     );
 
     return () => {};
@@ -67,33 +79,46 @@ const HeroSection = ({ heroData, Component }) => {
           {heroData.map((video, i) => {
             return (
               <div
-                style={{ width: '100%;', height: '100%;' }}
+                className={`content-container ${index === i ? 'active' : ''}`}
                 key={video.title}
               >
-                <HeroVideo
+                {/* <HeroVideo
                   i={i}
                   index={index}
                   video={video}
                   videoRef={videoRef}
+                  className='hero-video'
+                /> */}
+                <div className='img-wrapper'>
+                  <video
+                  id={i}
+                  className={`video-slide ${index === i ? 'active' : ''}`}
+                  src={video.video}
+                  type='video/mp4'
+                  // autoPlay
+                  controls
+                  muted
+                  loop
+                  ref={videoRef}
                 />
-
-                <div
-                  className={`content ${index === i ? 'active' : ''}`}
-                  key={video.title}
-                >
-                  <h1>
-                    {video.title}
-                    <br></br>
-                    <span>{video.subtitle}</span>
-                  </h1>
-                  <p>{video.detail}</p>
-
-                  <button
-                    style={{ width: '230px', height: 'fit-content' }}
-                    href='#'
+                  <div
+                    className={`content ${index === i ? 'active' : ''}`}
+                    key={video.title}
                   >
-                    View On Youtube
-                  </button>
+                    <h1>
+                      {video.title}
+                      <br></br>
+                      <span>{video.subtitle}</span>
+                    </h1>
+                    <p>{video.detail}</p>
+
+                    <button
+                      style={{ width: '230px', height: 'fit-content' }}
+                      href='#'
+                    >
+                      View On Youtube
+                    </button>
+                  </div>
                 </div>
               </div>
             );
