@@ -12,7 +12,7 @@ import PictureCards from '../Components/PictureCards/PictureCards';
 const Home = () => {
   return (
     <>
-      <PromoSection />
+      {/* <PromoSection /> */}
       <PictureSection pictureData={pictureData} />
       <VideoGallery videoData={heroData} />
       <PictureCards pictureData={pictureData} />

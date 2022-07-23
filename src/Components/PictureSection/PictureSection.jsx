@@ -1,83 +1,79 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
-import LazyLoad from 'react-lazyload';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper';
 
-import SliderNav from '../SliderNav/SliderNav';
+import 'swiper/css/bundle';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 import './pictureSection.css';
 
 const PictureSection = ({ pictureData }) => {
-  const [index, setIndex] = useState(0);
-  const timeoutRef = useRef(null);
-
-  const slides = document.querySelectorAll('.picture-slide');
-  const delay = 5000;
-  const length = pictureData.length;
-
-  const nextSlide = () => {
-    setIndex(index === length - 1 ? 0 : index + 1);
-  };
-  const prevSlide = () => {
-    setIndex(index === 0 ? length - 1 : index - 1);
-  };
-
-  const resetTimeout = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-  };
-
-  useEffect(() => {
-    resetTimeout();
-    timeoutRef.current = setTimeout(
-      () =>
-        setIndex((prevIndex) =>
-          prevIndex === slides.length - 1 ? 0 : prevIndex + 1,
-        ),
-      delay,
-    );
-
-    return () => {};
-  }, [index]);
-
-  if (!Array.isArray(pictureData) || pictureData.length <= 0) {
-    return null;
-  }
+  const prevArrowRef = useRef(null);
+  const nextArrowRef = useRef(null);
   return (
     <>
-      <section className='picture-section'>
-        <BsChevronLeft className='left-arrow' onClick={prevSlide} />
-        <BsChevronRight className='right-arrow' onClick={nextSlide} />
-        <div className='hero-container'>
-          {pictureData.map((image, i) => {
-            return (
-              <div key={image.title}>
-                <img
-                  id='pictureSectionImage'
-                  className={`picture-slide ${index === i ? 'active' : ''}`}
-                  src={image.image}
-                  alt={image.title}
-                />
+      <Swiper
+        slidesPerView={1}
+        slidesPerGroup={1}
+        loop={true}
+        loopFillGroupWithBlank={true}
+        pagination={{
+          el: '.swiper-pagination',
+          clickable: true,
+          renderBullet: (index, className) => {
+            return `
+          <span class='${className}'></span>`;
+          },
+        }}
+        // autoplay={{ delay: 2500 }}
+        navigation={{ prevEl: prevArrowRef, nextEl: nextArrowRef }}
+        modules={[Autoplay, Pagination, Navigation]}
+        className='swiper'
+        tag='section'
+        wrapperTag='ul'
+        onBeforeInit={(swiper) => {
+          swiper.params.navigation.prevEl = prevArrowRef.current;
+          swiper.params.navigation.nextEl = nextArrowRef.current;
+        }}
+      >
+        {pictureData.map((image, i) => {
+          return (
+            <SwiperSlide key={`Slide-${image.title}-${i}`}>
+              <section className='picture-section'>
+                <div className='hero-container'>
+                  <div className='box-ps'>
+                    <div className='slide-img-ps'>
+                      <img src={image.image} alt={image.title} />
+                      <div className={`content`} key={image.title}>
+                        <h1>
+                          {image.title}
+                          <br></br>
+                          <span>{image.subtitle}</span>
+                        </h1>
+                        <p>{image.detail}</p>
 
-                <div
-                  className={`content ${index === i ? 'active' : ''}`}
-                  key={image.title}
-                >
-                  <h1>
-                    {image.title}
-                    <br></br>
-                    <span>{image.subtitle}</span>
-                  </h1>
-                  <p>{image.detail}</p>
-                  {/* <a href='#'>Read More</a> */}
-                  <button href='#'>View On Instagram</button>
+                        <button href='#'>View On Instagram</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-          {/* <div className='shade'></div> */}
+              </section>
+            </SwiperSlide>
+          );
+        })}
+        <div ref={prevArrowRef}>
+          <BsChevronLeft className='left-arrow' />
         </div>
-        <SliderNav data={pictureData} index={index} setIndex={setIndex} />
-      </section>
+        <div ref={nextArrowRef}>
+          <BsChevronRight className='right-arrow' />
+        </div>
+        <div className='swiper-pagination'>
+          <span className=' swiper-pagination-bullet'></span>
+        </div>
+      </Swiper>
     </>
   );
 };

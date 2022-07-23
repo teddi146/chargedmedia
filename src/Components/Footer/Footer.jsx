@@ -9,7 +9,7 @@ const Footer = () => {
   //   };
 
   return (
-    <div className='footer-container'>
+    <div id='footer' className='footer-container'>
       <div className='footer-wrapper'>
         <div className='footer-links-container'>
           <div className='footer-links-wrapper'>

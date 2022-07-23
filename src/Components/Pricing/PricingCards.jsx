@@ -1,81 +1,205 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { BsChevronRight, BsChevronLeft, BsFilter } from 'react-icons/bs';
+import { IconContext } from 'react-icons/lib';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper';
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
+// eslint-disable-next-line
+import 'swiper/css/bundle';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 import './pricing.css';
 
-const Pricing = () => {
+const PricingCards = ({ servicesData }) => {
+  const prevArrowRef = useRef(null);
+  const nextArrowRef = useRef(null);
+
   return (
-    <div className='container-fluid'>
-      <div className='container p-5'>
-        <div className='row'>
-          <div className='col-lg-4 col-md-12 mb-4'>
-            <div className='card card1 h-100'>
-              <div className='card-body'>
-                <h5 className='card-title'>Photoshoot</h5>
-                <small className='text-muted'>Individual/Studio</small>
-                <br></br>
-                <span className='h2'>R550</span>/hr
-                <br></br>
-                <div className='d-grid my-3'>
-                  <button className='btn btn-outline-dark btn-block'>
-                    Select
-                  </button>
+    <>
+      <Swiper
+        spaceBetween={0}
+        loop={true}
+        loopFillGroupWithBlank={true}
+        pagination={{
+          el: '.swiper-pagination',
+          clickable: true,
+          renderBullet: (index, className) => {
+            return `
+          <span class='${className}'></span>`;
+          },
+          autoplay: { delay: 2500, disableOnInteraction: false },
+        }}
+        breakpoints={{
+          480: {
+            width: 480,
+            // slidesPerGroup: 1,
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+          640: {
+            width: 640,
+            // slidesPerGroup: 1,
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+          768: {
+            width: 768,
+            // slidesPerGroup: 2,
+            slidesPerView: 2,
+            spaceBetween: 0,
+          },
+          1024: {
+            width: 1024,
+            // slidesPerGroup: 2,
+            slidesPerView: 3,
+            spaceBetween: 0,
+          },
+          1440: {
+            width: 1440,
+            // slidesPerGroup: 2,
+            slidesPerView: 4,
+            spaceBetween: 0,
+          },
+        }}
+        navigation={{ prevEl: prevArrowRef, nextEl: nextArrowRef }}
+        modules={[Pagination, Navigation]}
+        className='pricing-swiper'
+        tag='section'
+        wrapperTag='ul'
+        onBeforeInit={(swiper) => {
+          swiper.params.navigation.prevEl = prevArrowRef.current;
+          swiper.params.navigation.nextEl = nextArrowRef.current;
+        }}
+      >
+        {servicesData.map((slide, i) => {
+          return (
+            <SwiperSlide key={`Slide-${i}`}>
+              <div className='pricing-cards'>
+                <div className={`box `}>
+                  <div className={`slide-img `}>
+                    <img src={slide.image} alt='' />
+
+                    <div className='overlay'>
+                      <a href='#' className='add-cart-btn'>
+                        Add To Cart
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className={`pricing-detail-box `}>
+                    <div className='pricing-type'>
+                      <a href='#'>1hr Photoshoot</a>
+                      <span> On-Location</span>
+                    </div>
+
+                    <a href='#' className='price'>
+                      R750
+                    </a>
+                  </div>
                 </div>
-                <ul>
-                  <li>30 Images</li>
-                  <li>15 professionally retouched images</li>
-                  <li>makeup & hair not included.</li>
-                </ul>
               </div>
-            </div>
-          </div>
-          <div className='col-lg-4 col-md-12 mb-4'>
-            <div className='card card2 h-100'>
-              <div className='card-body'>
-                <h5 className='card-title'>Photoshoot</h5>
-                <small className='text-muted'>Individual/On-Location</small>
-                <br></br>
-                <span className='h2'>R750</span>/hr
-                <br></br>
-                <div className='d-grid my-3'>
-                  <button className='btn btn-outline-dark btn-block'>
-                    Select
-                  </button>
-                </div>
-                <ul>
-                  <li>30 Images</li>
-                  <li>15 professionally retouched images</li>
-                  <li>makeup & hair not included.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className='col-lg-4 col-md-12 mb-4'>
-            <div className='card card3 h-100'>
-              <div className='card-body'>
-                <h5 className='card-title'>Club Recap Video</h5>
-                <small className='text-muted'>Event/On-Location</small>
-                <br></br>
-                <span className='h2'>R1500</span>
-                <br></br>
-                <div className='d-grid my-3'>
-                  <button className='btn btn-outline-dark btn-block'>
-                    Select
-                  </button>
-                </div>
-                <ul>
-                  <li>1 minute Social Media Recap Video.</li>
-                  <li>Stunning Visual Effects.</li>
-                  <li>Completed Within 3 Days</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            </SwiperSlide>
+          );
+        })}
+        <div ref={prevArrowRef}>
+          <IconContext.Provider value={{ color: '#81f7b6' }}>
+            <BsChevronLeft className='left-arrow' />
+          </IconContext.Provider>
         </div>
-      </div>
-    </div>
+        <div ref={nextArrowRef}>
+          <IconContext.Provider value={{ color: '#81f7b6' }}>
+            <BsChevronRight className='right-arrow' />
+          </IconContext.Provider>
+        </div>
+        <div className='swiper-pagination'>
+          <span className=' swiper-pagination-bullet'></span>
+        </div>
+      </Swiper>
+    </>
+
+    // <section className='pricing-cards'>
+    //   <div className={`box `}>
+    //     <div className={`slide-img `}>
+    //       <img src={servicesData[0].image} alt='' />
+    //       <div className='overlay'>
+    //         <a href='#' className='add-cart-btn'>
+    //           Add To Cart
+    //         </a>
+    //       </div>
+    //     </div>
+    //     <div className={`detail-box `}>
+    //       <div className='type'>
+    //         <a href='#'>1hr Photoshoot</a>
+    //         <span> On-Location</span>
+    //       </div>
+    //       <a href='#' className='price'>
+    //         R750
+    //       </a>
+    //     </div>
+    //   </div>
+    //   <div className={`box `}>
+    //     <div className={`slide-img `}>
+    //       <img src={servicesData[0].image} alt='' />
+    //       <div className='overlay'>
+    //         <a href='#' className='add-cart-btn'>
+    //           Add To Cart
+    //         </a>
+    //       </div>
+    //     </div>
+    //     <div className={`detail-box `}>
+    //       <div className='type'>
+    //         <a href='#'>1hr Photoshoot</a>
+    //         <span> On-Location</span>
+    //       </div>
+    //       <a href='#' className='price'>
+    //         R750
+    //       </a>
+    //     </div>
+    //   </div>
+    //   <div className={`box `}>
+    //     <div className={`slide-img `}>
+    //       <img src={servicesData[0].image} alt='' />
+    //       <div className='overlay'>
+    //         <a href='#' className='add-cart-btn'>
+    //           Add To Cart
+    //         </a>
+    //       </div>
+    //     </div>
+    //     <div className={`detail-box `}>
+    //       <div className='type'>
+    //         <a href='#'>1hr Photoshoot</a>
+    //         <span> On-Location</span>
+    //       </div>
+    //       <a href='#' className='price'>
+    //         R750
+    //       </a>
+    //     </div>
+    //   </div>
+
+    //   <div className={`box`}>
+    //     <div className={`slide-img `}>
+    //       <img src={servicesData[1].image} alt='' />
+    //       <div className='overlay'>
+    //         <a href='#' className='add-cart-btn'>
+    //           Add To Cart
+    //         </a>
+    //       </div>
+    //     </div>
+    //     <div className={`detail-box `}>
+    //       <div className='type'>
+    //         <a href='#'>1hr Photoshoot</a>
+    //         <span> On-Location</span>
+    //       </div>
+    //       <a href='#' className='price'>
+    //         R750
+    //       </a>
+    //     </div>
+    //   </div>
+    // </section>
   );
 };
 
-export default Pricing;
+export default PricingCards;
 

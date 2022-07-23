@@ -58,7 +58,7 @@ export const SidebarLink = styled(LinkR)`
   cursor: pointer;
 
   &:hover {
-    color: #01bf71;
+    color: #9225fe;
     transition: 0.2s ease-in-out;
   }
 `;
@@ -71,7 +71,7 @@ export const SideBtnWrapper = styled.div`
 export const SidebarRoute = styled(LinkR)`
   border-radius: 20px;
   /* width:100px ; */
-  background: #9225fe;
+  background: #222222;
   white-space: nowrap;
   padding: 10px 64px;
   color: #81f7b6;
@@ -84,7 +84,7 @@ export const SidebarRoute = styled(LinkR)`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
+    background: #81f7b6;
+    color: #9225fe;
   }
 `;

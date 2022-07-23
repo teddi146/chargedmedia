@@ -1,41 +1,172 @@
- .card1:hover {
-      background:#00ffb6;
-      border:1px solid #00ffb6;
-    }
+a {
+  text-decoration: none;
+}
 
-    .card1:hover .list-group-item{
-      background:#00ffb6 !important
-    }
+.pricing-cards {
+  width: 100vw;
 
-    .container-fluid{
-      margin-top: 10px !important;
-    }
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
 
+.box {
+  width: 300px;
+  box-shadow: 2px 2pc 30px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  /* position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
+}
 
-    
+.box.active {
+  display: block;
+}
+.slide-img {
+  height: 400px;
+  position: relative;
+}
 
+.slide-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-sizing: border-box;
+}
 
-    .card2:hover {
-      background:#00C9FF;
-      border:1px solid #00C9FF;
-    }
+.pricing-detail-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
 
-    .card2:hover .list-group-item{
-      background:#00C9FF !important
-    }
+.pricing-type {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
 
+.pricing-type a {
+  color: #222222;
+  margin: 5px 0px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding-right: 8px;
+  text-decoration: none;
+}
 
-    .card3:hover {
-      background:#ff95e9;
-      border:1px solid #ff95e9;
-    }
+.pricing-type span {
+  color: rgba(26, 26, 26, 0.5);
+}
 
-    .card3:hover .list-group-item{
-      background:#ff95e9 !important
-    }
+.price {
+  color: #333333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
 
+.overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(92, 95, 236, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-    .card:hover .btn-outline-dark{
-      color:white;
-      background:#212529;
-    }
+.add-cart-btn {
+  width: 160px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #252525;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border-radius: 20px;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+}
+
+.add-cart-btn:hover {
+  /* color: #fff; */
+  background-color: #81f7b6;
+  transition: all ease 0.3s;
+}
+
+.overlay {
+  visibility: hidden;
+}
+.slide-img:hover .overlay {
+  visibility: visible;
+  animation: fade 0.5s;
+}
+
+.pricing-swiper {
+  width: 100%;
+  height: 100vh;
+  margin-top: 80px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1024) {
+  .box {
+    width: 250px;
+  }
+  .slide-img {
+    height: 400px;
+  }
+}
+
+@media screen and(max-width: 768) {
+}
+

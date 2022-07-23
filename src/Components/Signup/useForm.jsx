@@ -11,6 +11,7 @@ const useForm = (callback, validate) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const context = useContext(AuthContext);
 
   const toggleLogin = () => {
     setIsLogin((prevState) => {
@@ -18,13 +19,6 @@ const useForm = (callback, validate) => {
     });
     console.log(isLogin);
   };
-  const context = useContext(AuthContext);
-
-  useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback();
-    }
-  }, [errors]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -79,7 +73,9 @@ const useForm = (callback, validate) => {
       };
     }
 
-    fetch('http://localhost:5000/graphql', {
+    // console.log(requestBody);
+
+    fetch('http://localhost:5001/graphql', {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
@@ -87,28 +83,58 @@ const useForm = (callback, validate) => {
       },
     })
       .then((res) => {
-        if (res.status !== 200 && res.status !== 201) {
-          throw new Error('Failed!');
+        if (
+          res.status !== 200 &&
+          res.status !== 201 &&
+          (res.status === 500 || res.status === 400)
+        ) {
+          const err = 'Server Failed to Authenticate';
+          setErrors({ authErr: err });
+          // throw new Error('Server Failed to Authenticate');
         }
-       
+
         return res.json();
       })
       .then((resData) => {
-        console.log(resData);
+        console.log('resData:', resData);
+
+        if (resData.errors) {
+          const err = () =>
+            resData.errors[0].message === 'User does not exist!'
+              ? setErrors({
+                  email: resData.errors[0].message,
+                })
+              : resData.errors[0].message === 'Password is incorrect'
+              ? setErrors({
+                  password: resData.errors[0].message,
+                })
+              : '';
+          err().then((_) => {
+            throw new Error(errors.errors.message);
+          });
+        }
+
         if (resData.data.login.token) {
           context.login(
             resData.data.login.token,
             resData.data.login.userId,
             resData.data.login.tokenExpiration,
           );
-           toggleLogin()
+          toggleLogin();
         }
-        // console.log(resData);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log('catchErr', err);
+        console.log('errors', errors);
       });
   };
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      callback();
+    }
+    console.log('uE', errors);
+  }, [errors]);
 
   return {
     handleChange,

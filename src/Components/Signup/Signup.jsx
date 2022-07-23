@@ -1,65 +1,58 @@
 import React from 'react';
 import useForm from './useForm';
 import validate from './ValidateInfo';
-import {
-  Form,
-  FormContentRight,
-  FormH1,
-  FormInput,
-  FormInputButton,
-  FormInputLogin,
-  FormInputLoginA,
-  FormInputs,
-  FormLabel,
-  FormP,
-} from './SignupElements';
 
 const Signup = ({ submitForm }) => {
-  const {
-    handleChange,
-    values,
-    handleSubmit,
-    errors,
-    toggleLogin,
-    isLogin,
-  } = useForm(submitForm, validate);
+  const { handleChange, values, handleSubmit, errors, toggleLogin, isLogin } =
+    useForm(submitForm, validate);
+
   return (
-    <FormContentRight>
-      <Form onSubmit={handleSubmit}>
+    <div className='form-content-right'>
+      <form className='form' onSubmit={handleSubmit}>
         {isLogin ? (
-          <FormH1>Please Login</FormH1>
+          <h1>Please Enter Your Login Details</h1>
         ) : (
-          <FormH1>Get started with us today, Sign Up</FormH1>
+          <h1>Get started with us today, fill out form</h1>
         )}
         {!isLogin && (
-          <FormInputs>
-            <FormLabel htmlFor='username'>Username</FormLabel>
-            <FormInput
+          <div className='form-inputs'>
+            <label htmlFor='username' className='form-label'>
+              Username
+            </label>
+            <input
               id='username'
               type='text'
               name='username'
+              className='form-input'
               placeholder='Enter your username'
               value={values.username}
               onChange={handleChange}
             />
-            {errors.username && <FormP>{errors.username}</FormP>}
-          </FormInputs>
+            {errors.username && <p>{errors.username}</p>}
+          </div>
         )}
-        <FormInputs>
-          <FormLabel htmlFor='email'>Email</FormLabel>
-          <FormInput
+
+        <div className='form-inputs'>
+          <label htmlFor='email' className='form-label'>
+            Email
+          </label>
+          <input
             id='email'
             type='email'
             name='email'
+            className='form-input'
             placeholder='Enter your Email'
             value={values.email}
             onChange={handleChange}
           />
-          {errors.email && <FormP>{errors.email}</FormP>}
-        </FormInputs>
-        <FormInputs>
-          <FormLabel htmlFor='password'>Password</FormLabel>
-          <FormInput
+          {errors.email && <p>{errors.email}</p>}
+          {errors.auth && <p>{errors.auth}</p>}
+        </div>
+        <div className='form-inputs'>
+          <label htmlFor='password' className='form-label'>
+            Password
+          </label>
+          <input
             id='password'
             type='password'
             name='password'
@@ -68,12 +61,14 @@ const Signup = ({ submitForm }) => {
             value={values.password}
             onChange={handleChange}
           />
-          {errors.password && <FormP>{errors.password}</FormP>}
-        </FormInputs>
+          {errors.password && <p>{errors.password}</p>}
+        </div>
         {!isLogin && (
-          <FormInputs>
-            <FormLabel htmlFor='password2'>Confirm Password</FormLabel>
-            <FormInput
+          <div className='form-inputs'>
+            <label htmlFor='password2' className='form-label'>
+              Confirm Password
+            </label>
+            <input
               id='password2'
               type='password'
               name='password2'
@@ -82,21 +77,22 @@ const Signup = ({ submitForm }) => {
               value={values.password2}
               onChange={handleChange}
             />
-            {errors.password2 && <FormP>{errors.password2}</FormP>}
-          </FormInputs>
+            {errors.password2 && <p>{errors.password2}</p>}
+          </div>
         )}
 
-        <FormInputButton type='submit' >{!isLogin ? 'Sign Up' : 'Login' }</FormInputButton>
-
-        <FormInputLogin>
-          {isLogin ? 'Dont ' : 'Already '} have an account?{' '}
-          {isLogin ? 'Sign Up ' : 'Login '}
-          <FormInputLoginA href='#' onClick={toggleLogin}>
+        <button className='form-input-btn' type='submit'>
+          {!isLogin ? 'Sign Up' : 'Login'}
+        </button>
+        <span className='form-input-login'>
+          {isLogin ? 'Dont ' : 'Already '}
+          have an account? {isLogin ? ' Login ' : ' Signup '}
+          <a href='#' onClick={toggleLogin}>
             here
-          </FormInputLoginA>
-        </FormInputLogin>
-      </Form>
-    </FormContentRight>
+          </a>
+        </span>
+      </form>
+    </div>
   );
 };
 

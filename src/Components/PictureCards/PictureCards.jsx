@@ -110,7 +110,7 @@ const PictureCards = ({ props, pictureData }) => {
       .call(() => {
         swapInfosClass(direction);
       })
-      .call(() => initCardEvents())
+      // .call(() => initCardEvents())
       .fromTo(
         direction === 'right'
           ? Array.from(nextInfoElRef.current.getElementsByClassName('text'))
@@ -157,6 +157,7 @@ const PictureCards = ({ props, pictureData }) => {
   }
 
   function updateCard(e) {
+    console.log('e: ', e);
     const card = e.currentTarget;
     const box = card.getBoundingClientRect();
     const centerPosition = {
@@ -184,15 +185,15 @@ const PictureCards = ({ props, pictureData }) => {
     });
   }
 
-  function initCardEvents() {
-    // const currentCardEl = cardsContainerEl.querySelector('.current--card');
-    currentCardElRef.current.addEventListener('pointermove', (e) => {
-      updateCard(e);
-    });
-    currentCardElRef.current.addEventListener('pointerout', (e) => {
-      resetCardTransforms(e);
-    });
-  }
+  // function initCardEvents() {
+  //   // const currentCardEl = cardsContainerEl.querySelector('.current--card');
+  //   currentCardElRef.current.addEventListener('pointermove', (e) => {
+  //     updateCard(e);
+  //   });
+  //   currentCardElRef.current.addEventListener('pointerout', (e) => {
+  //     resetCardTransforms(e);
+  //   });
+  // }
 
   function removeCardEvents(card) {
     card.removeEventListener('pointermove', updateCard);
@@ -283,7 +284,6 @@ const PictureCards = ({ props, pictureData }) => {
   };
 
   useEffect(() => {
-    initCardEvents();
     waitForImages();
     return () => {};
   }, []);
@@ -387,19 +387,28 @@ const PictureCards = ({ props, pictureData }) => {
 
         <div className='infoList'>
           <div className='info__wrapper' ref={cardInfosContainerElRef}>
-            <div className={`info ${isCurrentInfo} `} ref={currentInfoElRef}>
+            <div
+              className={`info ${isCurrentInfo} `}
+              ref={isCurrentInfo ? currentInfoElRef : ''}
+            >
               <h1 className='text name'>{pictureData[6].title}</h1>
               <h4 className='text location'>ChargedMedia</h4>
               <p className='text description'>{pictureData[6].subtitle}</p>
             </div>
 
-            <div className={`info ${isNextInfo} `} ref={nextInfoElRef}>
+            <div
+              className={`info ${isNextInfo} `}
+              ref={isNextInfo ? nextInfoElRef : ''}
+            >
               <h1 className='text name'>{pictureData[5].title}</h1>
               <h4 className='text location'>ChargedMedia</h4>
               <p className='text description'>{pictureData[5].subtitle}</p>
             </div>
 
-            <div className={`info ${isPrevInfo} `} ref={previousInfoElRef}>
+            <div
+              className={`info ${isPrevInfo} `}
+              ref={isPrevInfo ? previousInfoElRef : ''}
+            >
               <h1 className='text name'>{pictureData[8].title}</h1>
               <h4 className='text location'>ChargedMedia</h4>
               <p className='text description'>{pictureData[8].subtitle}</p>

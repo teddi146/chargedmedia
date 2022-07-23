@@ -1,59 +1,66 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
-import LazyLoad from 'react-lazyload';
+import { IconContext } from 'react-icons/lib';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper';
+
+import 'swiper/css/bundle';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import './promoSection.css';
 
 import { promoData } from './promoData';
 import SliderNav from '../SliderNav/SliderNav';
-import './promoSection.css';
-import { IconContext } from 'react-icons/lib';
 
 const PromoSection = () => {
-  const [index, setIndex] = useState(0);
-  const timeoutRef = useRef(null);
-
-  const slides = document.querySelectorAll('.promo-slide');
-  const delay = 5000;
-  const length = promoData.length;
-
-  const nextSlide = () => {
-    setIndex(index === length - 1 ? 0 : index + 1);
-  };
-  const prevSlide = () => {
-    setIndex(index === 0 ? length - 1 : index - 1);
-  };
-
-  const resetTimeout = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-  };
-
-  useEffect(() => {
-    resetTimeout();
-    timeoutRef.current = setTimeout(
-      () =>
-        setIndex((prevIndex) =>
-          prevIndex === slides.length - 1 ? 0 : prevIndex + 1,
-        ),
-      delay,
-    );
-
-    return () => {};
-  }, [index]);
-
-  if (!Array.isArray(promoData) || promoData.length <= 0) {
-    return null;
-  }
-
+  const prevArrowRef = useRef(null);
+  const nextArrowRef = useRef(null);
   return (
-    <>
-      <section className='promo-section'>
-        <IconContext.Provider value={{ color: '#81f7b6' }}>
-          <BsChevronLeft className='left-arrow' onClick={prevSlide} />
-          <BsChevronRight className='right-arrow' onClick={nextSlide} />
-        </IconContext.Provider>
+    <section className='promo-section'>
+      <>
+        <Swiper
+          loop={true}
+          loopFillGroupWithBlank={true}
+          pagination={{
+            el: '.swiper-pagination',
+            clickable: true,
+            renderBullet: (index, className) => {
+              return `
+          <span class='${className}'></span>`;
+            },
+          }}
+          // autoplay={{ delay: 2500 }}
+          navigation={{ prevEl: prevArrowRef, nextEl: nextArrowRef }}
+          modules={[Autoplay, Pagination, Navigation]}
+          className='swiper'
+          tag='section'
+          wrapperTag='ul'
+          onBeforeInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevArrowRef.current;
+            swiper.params.navigation.nextEl = nextArrowRef.current;
+          }}
+        >
+          {promoData.map((image, i) => {
+            return <SwiperSlide key={`Slide-${i}`}></SwiperSlide>;
+          })}
+
+          <div ref={prevArrowRef}>
+            <IconContext.Provider value=''>
+              <BsChevronLeft className='left-arrow' />
+            </IconContext.Provider>
+          </div>
+          <div ref={nextArrowRef}>
+            <IconContext.Provider value=''>
+              <BsChevronRight className='right-arrow' />
+            </IconContext.Provider>
+          </div>
+          <div className='swiper-pagination'>
+            <span className=' swiper-pagination-bullet'></span>
+          </div>
+        </Swiper>
+        {/* <section className='promo-section'>
         <div className='promo-hero'>
-          {' '}
           {promoData.map((image, i) => {
             return (
               <div
@@ -77,26 +84,15 @@ const PromoSection = () => {
                     <button className='add-to-cart' style={{ width: '200px' }}>
                       Add To Cart
                     </button>
-                    <ul>
-                      <li className='promo-item' key={`item ${i}`}>
-                        {image.detail1}
-                      </li>
-                      <li className='promo-item' key={`item ${i + 1}`}>
-                        {image.detail2}
-                      </li>
-                      <li className='promo-item' key={`item ${i + 2}`}>
-                        {image.detail3}
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
-        <SliderNav data={promoData} index={index} setIndex={setIndex} />
-      </section>
-    </>
+      </section> */}
+      </>
+    </section>
   );
 };
 

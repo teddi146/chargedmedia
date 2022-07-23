@@ -2,7 +2,6 @@
   width: 100vw;
   height: fit-content;
   background: #9225fe;
-  position: relative;
   max-height: 100vh;
 }
 
@@ -107,6 +106,4 @@ social-icons {
 .social-icon-link:hover {
   color: #81f7b6;
 }
-
-
 

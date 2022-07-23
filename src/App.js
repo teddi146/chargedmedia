@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
@@ -9,64 +15,94 @@ import Portfolio from './Pages/Portfolio';
 import Pricing from './Pages/Pricing';
 import Bookings from './Pages/Bookings';
 import Contact from './Pages/Contact';
-import IntersectionObserver from './Components/util/IntersectionObserver';
 import AuthContext from './Context/authContext';
 import { useState } from 'react';
 import Sidebar from './Components/SideBar/Sidebar';
 
 function App() {
-  const [click, setClick] = useState(null);
-  const [isOpen, setIsOpen] = useState(null);
-
-  let callback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.target.id === 'headerVideo') {
-        if (entry.isIntersecting) {
-          entry.target.play();
-        } else {
-          entry.target.pause();
-        }
-      }
-    });
-  };
-
-  let options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0,
-  };
+  const [data, setData] = useState(null);
+  const [token, setToken] = useState(null);
+  const [userId, setUserId] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [click, setClick] = useState(false);
 
   const closeMobileMenu = () => {
     setClick(false);
   };
 
+  // const handleClick = () => {
+  //   // setClick(!click);
+  // };
+
   const toggle = () => {
     setIsOpen(!isOpen);
   };
 
+  const callBackendApi = async () => {
+    const response = await fetch('/');
+    const body = await response.json();
+    if (response.status !== 200) {
+      throw Error(body.message);
+    }
+    return body;
+  };
+
+  const login = (token, userId, tokenExpiration) => {
+    setToken(token);
+    setUserId(userId);
+
+    console.log('userId: ' + userId);
+    console.log('token: ' + token);
+  };
+
+  const logout = () => {
+    setToken(null);
+    setUserId(null);
+  };
+
+  useEffect(() => {
+    callBackendApi()
+      .then((res) => setData(res.express))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
-      <IntersectionObserver callback={callback} options={options} />
       <AuthContext.Provider
         value={{
-          isOpen: isOpen,
+          token: token,
+          userId: userId,
           click: click,
+          isOpen: isOpen,
           closeMobileMenu: closeMobileMenu,
           toggle: toggle,
+          login: login,
+          logout: logout,
         }}
       >
         <Router>
           <Navbar />
           <Sidebar />
-          <>
-            <Routes>
-              <Route path='/' exact element={<Home />} />
-              <Route path='/portfolio' exact element={<Portfolio />} />
-              <Route path='/pricing' exact element={<Pricing />} />
-              <Route path='/bookings' exact element={<Bookings />} />
-              <Route path='/contact' exact element={<Contact />} />
-            </Routes>
-          </>
+          <div id='page-container'>
+            <div id='content-wrap'>
+              <Routes>
+                <Route path='/' exact element={<Home />} />
+                {/* {token && <Redirect from='/' to='bookings' />} */}
+                {/* {!token && <Redirect from='/survey' to='signup' />} */}{' '}
+                <Route path='/portfolio' exact element={<Portfolio />} />
+                <Route path='/pricing' exact element={<Pricing />} />
+                <Route
+                  path='/bookings'
+                  exact
+                  element={
+                    !token ? <Navigate replace to={'/'} /> : <Bookings />
+                  }
+                />
+                <Route path='/contact' exact element={<Contact />} />
+                {/* <Route path='/signup' exact element={<Signup />} /> */}
+              </Routes>
+            </div>
+          </div>
           <Footer />
         </Router>
       </AuthContext.Provider>

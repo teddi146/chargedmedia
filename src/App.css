@@ -11,6 +11,17 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+#content-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 2.5rem; /* Footer height */
+}
 
 .shade {
   width: 100%;
@@ -51,7 +62,13 @@ body {
   /* transform: translateY(80px); */
   z-index: 887;
 }
-
+.swiper-pagination {
+  position: absolute !important;
+  bottom: 3.75rem;
+  display: flex;
+  justify-content: center;
+  z-index: 887;
+}
 .slider-navigation .nav-btn {
   width: 12px;
   height: 12px;
@@ -61,9 +78,23 @@ body {
   box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
   transition: 0.3s ease;
 }
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  background: #81f7b6 !important;
+  border-radius: 50% !important;
+  cursor: pointer;
+  opacity: 0.5 !important;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5) !important;
+  transition: 0.3s ease !important;
+}
 
 .slider-navigation .nav-btn.active {
   background: #9225fe;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  background: #9225fe !important;
 }
 
 .slider-navigation .nav-btn:not(:last-child) {
@@ -72,6 +103,13 @@ body {
 
 .slider-navigation .nav-btn:hover {
   transform: scale(1.2);
+}
+.swiper-pagination-bullet:not(:last-child) {
+  /* margin-right: 20px; */
+}
+
+.swiper-navigation-bullet:hover {
+  transform: scale(1.2) !important;
 }
 
 /* @media (max-width: 672px) {
@@ -230,6 +268,21 @@ body {
 /* iPads (portrait) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   /* Styles */
+  #page-container {
+    min-height: fit-content;
+  }
+  #content-wrap {
+    padding-bottom: 0px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* Styles */
+  #page-container {
+    min-height: fit-content;
+  }
+  #content-wrap {
+    padding-bottom: 0px;
+  }
 }
 
 /* Desktops and laptops ----------- */

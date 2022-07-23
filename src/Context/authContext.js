@@ -3,10 +3,13 @@ import React from 'react';
 export default React.createContext({
   token: null,
   userId: null,
-  login: (token, userId, tokenExpiration) => {},
+  login: (token, userId, tokenEpiration) => {},
   logout: () => {},
-  closeMobileMenu: null,
-  isOpen: null,
   click: null,
+  closeMobileMenu: null,
+  onMouseEnter: null,
+  onMouseLeave: null,
+  changeNav: null,
   toggle: null,
+  isOpen: null,
 });
